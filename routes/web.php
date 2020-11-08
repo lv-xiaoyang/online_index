@@ -15,3 +15,33 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index.index');
 });
+//首页
+Route::any('/index/index','index\IndexController@index');
+//首页课程列表
+Route::any('/index/courselist','index\IndexController@courselist');
+//首页咨询列表
+Route::any('/index/articlelist','index\IndexController@articlelist');
+//首页讲师列表
+Route::any('/index/teacherlist','index\IndexController@teacherlist');
+//个人中心
+Route::any('/index/mycourse','index\IndexController@mycourse');
+//注册
+Route::any('/index/register','index\IndexController@register');
+//登录
+Route::any('/index/login','index\IndexController@login');
+
+
+//讲师模板
+//讲师个人详情页面
+Route::any('/index/teacher','index\IndexController@teacher');
+//讲师课程页面
+Route::any('/index/coursecont','index\IndexController@coursecont');
+//讲师课程章节页面
+Route::any('/index/coursecont1','index\IndexController@coursecont1');
+//讲师课程视频页面
+Route::any('/index/video','index\IndexController@video');
+
+//个人中心讲师申请页面
+Route::any('/index/regteacher','index\IndexController@regteacher');
+// 讲师登录页面
+Route::any('/index/loginteacher','index\IndexController@loginteacher');
