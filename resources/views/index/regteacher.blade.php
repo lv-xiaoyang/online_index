@@ -2,10 +2,12 @@
 <!doctype html>
 <html><!-- InstanceBegin template="/Templates/dwt.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
+
 <meta charset="utf-8">
 <!-- InstanceBeginEditable name="doctitle" -->
+<meta name="_token" content="{{ csrf_token() }}"/>
 <title>谋刻职业教育在线测评与学习平台</title>
-
+<!-- <link rel="stylesheet" href="/js/uploadify/uploadify.css"> -->
 <link rel="stylesheet" href="/static/css/course.css"/>
 <link rel="stylesheet" href="/static/css/register-login.css"/>
 <script src="/static/js/jquery-1.8.0.min.js"></script>
@@ -70,56 +72,61 @@
 <!-- InstanceBeginEditable name="EditRegion1" -->
 <div class="register" style="background:url(/static/images/13.jpg) right center no-repeat #fff">
 <h2>讲师注册</h2>
-<form>
+<form action=""  id="banner-upload"  enctype="multipart/form-data">
     <div>
     <p class="formrow"><label class="control-label" for="register_email">讲师昵称</label>
-    <input type="text"></p>
-    <span class="text-danger">该怎么称呼你？ 中、英文均可，最长14个英文或7个汉字</span>
+    <input type="text" name="lereg_name" id="lereg_name">
+    <span id="text-name" ></span>
     </div>
     <div>
     <p class="formrow"><label class="control-label" for="register_email">讲师履历</label>
-    <textarea name="" id="" cols="50" rows="5">
-    </textarea>
+    <textarea name="lereg_res" id="lereg_res" cols="50" rows="5"></textarea> 
+    <span id="text-res"></span>
     </div>
     <div>
     <p class="formrow"><label class="control-label" for="register_email">学历</label>
-    <select name="" id="">
+    <select name="lereg_edu" id="lereg_edu">
         <option value="">--请选择--</option>
-        <option value="">博士研究生</option>
-        <option value="">硕士研究生</option>
-        <option value="">本科</option>
-        <option value="">专科</option>
-        <option value="">中专/高中</option>
+        <option value="1">博士研究生</option>
+        <option value="2">硕士研究生</option>
+        <option value="3">本科</option>
+        <option value="4">专科</option>
+        <option value="5">中专/高中</option>
     </select>
-    <span class="text-danger">学历</span>
+    <span id="text-edu"></span>
     </div>
     <div>
     <p class="formrow"><label class="control-label" for="register_email">毕业院校</label>
-    <input type="text">
-    <span class="text-danger">填写毕业院校</span>
+    <input type="text" id="lereg_school" name="lereg_school">
+    <span id="text-school"></span>
     </div>
     <div>
     <p class="formrow"><label class="control-label" for="register_email">所学专业</label>
-    <input type="text"></p>
-    <span class="text-danger">填写所学专业</span>
+    <input type="text" id="lereg_magor" name="lereg_magor"></p>
+    <span id="text-magor">填写所学专业</span>
     </div>
+   
     <div>
-    <p class="formrow"><label class="control-label" for="register_email">所学专业</label>
-    <input type="text"></p>
-    <span class="text-danger">填写所学专业</span>
+    <p class="formrow"><label class="control-label" for="register_email">教师资格证</label>
+    <input type="file" id="lereg_qual" name="lereg_qual">
+    <div class="showimg"></div>
+        <input type="hidden"  id="lereg_qual" width="50" hight="50" name="img_path"><span id="text-qual"></span>
     </div>
+   
+
     <div>
     <p class="formrow"><label class="control-label" for="register_email">从业时长</label>
-    <select name="" id="">
+    <select name="lereg_time" id="lereg_time">
         <option value="">--请选择--</option>
-        <option value="">10年以上</option>
-        <option value="">5-10年</option>
-        <option value="">2-5年</option>
-        <option value="">1-2年</option>
+        <option value="1">10年以上</option>
+        <option value="2">5-10年</option>
+        <option value="3">2-5年</option>
+        <option value="4">1-2年</option>
     </select>
+    <span id="text-time"></span>
     </div>
     <div class="loginbtn reg">
-    <button type="submit" class="uploadbtn ub1">注册</button>
+    <button  class="uploadbtn ub1" id="button">注册</button>
     </div>
 
 </form>
@@ -164,3 +171,91 @@
 </body>
 
 <!-- InstanceEnd --></html>
+<script src="/jquery.js"></script>
+<script>
+
+   	$("form").submit(function(){
+		return false;
+	});
+    function check(){
+        return false;
+    };
+   
+    $("#button").click(function(){
+        
+        var lereg_name = $("#lereg_name").val();
+        var lereg_res = $("#lereg_res").val();
+        var lereg_edu=$("#lereg_edu option:selected").val();
+        
+        var lereg_school = $("#lereg_school").val();
+        var lereg_magor = $("#lereg_magor").val();
+        var lereg_time=$("#lereg_time option:selected").val();
+        if(lereg_name==""){
+            $("#text-name").html("<font color=red>*昵称不能为空</font>");
+            return false;
+        }
+        if(lereg_res==""){
+            $("#text-res").html("<font color=red>*讲师履历不可为空</font>");
+            return false;
+        }
+        if(lereg_school==''){
+        	$("#text-school").html("<font color=red>*毕业院校不可为空</font>");
+        	return false;
+        };
+        if(lereg_magor==''){
+        	$("#text-magor").html("<font color=red>*所学专业不可为空</font>");
+        	return false;
+        };
+        if(lereg_edu==""){
+            $("#text-edu").html("<font color=red>*请选择学历</font>");
+            return false;
+        }
+        if(lereg_time==""){
+            $("#text-time").html("<font color=red>*请选择从业时长</font>");
+            return false;
+        }
+        if(lereg_qual==""){
+            $("#text-qual").html("<font color=red>*请上传教师资格证证件照</font>");
+            return false;
+        }
+
+        $(document).on('click','#button',function(a){
+            $(function(){
+                $("[data-toggle='popover']").popover();
+            });
+            a.preventDefault();
+            var formData =new FormData(document.getElementById('banner-upload'))
+            $.ajax({
+            headers:{
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            },
+            url:"{{url('/index/regteacher/story')}}",
+            type:"post",
+            dataType:"json",
+            processData: false,
+            contentType: false,
+            data:formData,
+            success:function(res){
+                    if(res.code==0){  
+                        location.href="http://www.onlineadmin.com/";
+                    }else{
+                        alert('跳转失败');
+                    };
+                   
+
+            }
+        });
+        
+        
+        
+        })
+        
+        // $.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
+        
+    });
+
+
+
+
+
+</script>

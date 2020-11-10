@@ -69,7 +69,7 @@
 </div>
 <!-- InstanceBeginEditable name="EditRegion1" -->
 <div class="login" style="background:url(/static/images/12.jpg) right center no-repeat #fff">
-<h2>登录</h2>
+<h2>讲师登录</h2>
 <form style="width:600px">
 <div>
     <p class="formrow">
