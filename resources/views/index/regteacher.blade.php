@@ -222,7 +222,7 @@
         $(document).on('click','#button',function(a){
             $(function(){
                 $("[data-toggle='popover']").popover();
-            });
+            });0
             a.preventDefault();
             var formData =new FormData(document.getElementById('banner-upload'))
             $.ajax({
@@ -249,7 +249,7 @@
         
         
         })
-        
+        //csrf 
         // $.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
         
     });
