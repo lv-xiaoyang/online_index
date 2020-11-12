@@ -12,11 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('index.index');
-});
+// Route::get('/', function () {
+//     return view('index.index');
+// });
 //首页
-Route::any('/index/index','index\IndexController@index');
+Route::get('/','index\IndexController@index');
 //首页课程列表
 Route::any('/index/courselist','index\IndexController@courselist');
 //首页咨询列表
