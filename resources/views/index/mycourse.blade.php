@@ -22,6 +22,8 @@
 		<li><a class="mb4" href="/index/mynote">我的笔记</a></li>
 		<li><a class="mb12" href="/index/myhomework">我的作业</a></li>
         <li><a class="mb2" href="/index/training_list" target="_blank">我的题库</a></li>
+        <li><a class="mb13" href="/index/regteacher">申请成为讲师</a></li>
+        <li><a class="mb4" href="#">浏览历史</a></li>
    </ul>
    
     </div>

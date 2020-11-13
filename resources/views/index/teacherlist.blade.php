@@ -19,7 +19,7 @@
 	</div>
 	<div class="coursepic tecti">
 		<div class="teaimg">
-		<a href="teacher.html" target="_blank"><img src="/static/images/teacher.jpg" width="150"></a>
+		<a href="/index/teacher" target="_blank"><img src="/static/images/teacher.jpg" width="150"></a>
 		</div>
 		<div class="teachtext">
 			<h3><a href="/index/teacher" target="_blank" class="teatt">马嫱</a>&nbsp;&nbsp;<strong>会计基础、会计电算化讲师</strong></h3>

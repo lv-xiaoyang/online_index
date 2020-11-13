@@ -12,11 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('index.index');
-});
+// Route::get('/', function () {
+//     return view('index.index');
+// });
 //首页
-Route::any('/index/index','index\IndexController@index');
+Route::get('/','index\IndexController@index');
 //首页课程列表
 Route::any('/index/courselist','index\IndexController@courselist');
 //首页咨询列表
@@ -44,5 +44,18 @@ Route::any('/index/coursecont','index\IndexController@coursecont');
 Route::any('/index/coursecont1','index\IndexController@coursecont1');
 //讲师课程视频页面
 Route::any('/index/video','index\IndexController@video');
+
 //讲师课程评论页面
 Route::any('/index/comment','index\IndexController@comment');
+
+//个人中心讲师申请页面
+Route::any('/index/regteacher','index\IndexController@regteacher');
+// 讲师登录页面
+Route::any('/index/loginteacher','index\IndexController@loginteacher');
+// 讲师添加注册方法
+Route::get('/index/regteacher/create','index\TeacherController@create');
+// 讲师执行添加，注册方法
+Route::post('/index/regteacher/story','index\TeacherController@story');
+// 讲师执行添加，注册方法
+Route::post('/index/regteacher/getsun','index\TeacherController@getsun');
+
