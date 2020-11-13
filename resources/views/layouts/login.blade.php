@@ -2,6 +2,7 @@
 <!doctype html>
 <html><!-- InstanceBegin template="/Templates/dwt.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
+  <meta name="_token" content="{{ csrf_token() }}"/>
 <meta charset="utf-8">
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>谋刻职业教育在线测评与学习平台</title>
@@ -44,6 +45,7 @@
         </span>--> 
         	<!--未登录-->
         	<span class="exambtn_lore">
+            
                  <a class="tkbtn tklog" href="/index/login">登录</a>
                  <a class="tkbtn tkreg" href="/index/register">注册</a>
             </span>

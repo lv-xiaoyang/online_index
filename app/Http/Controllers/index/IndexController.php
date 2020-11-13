@@ -25,14 +25,7 @@
         public function mycourse(){
             return view("index.mycourse");
         }
-         //注册
-        public function register(){
-            return view("index.register");
-        }
-          //登录
-        public function login(){
-            return view("index.login");
-        }
+        
 
         //讲师模块
         //讲师个人详情页面
@@ -51,5 +44,10 @@
         public function video(){
             return view("index.video");
         }
+         //讲师课程评论页面
+        public function comment(){
+            return view("index.comment");
+        }
+
 
 }

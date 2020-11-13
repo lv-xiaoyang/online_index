@@ -2,6 +2,7 @@
 <!doctype html>
 <html>
 <head>
+  <meta name="_token" content="{{ csrf_token() }}"/>
 <meta charset="utf-8">
 <title>谋刻职业教育在线测评与学习平台</title>
 
@@ -67,6 +68,7 @@ function nTabs(thisObj,Num){
             <span id="lne" style="display:none" onMouseOut="logclose()" onMouseOver="logmine()">
                 <span style="background:#fff;">
                   <a href="/index/mycourse" style="width:70px; display:block;" class="link2 he ico" target="_blank">sherley</a>
+                 
                 </span>
                 <div class="clearh"></div>
                 <ul class="logmine" >

@@ -25,10 +25,14 @@ Route::any('/index/articlelist','index\IndexController@articlelist');
 Route::any('/index/teacherlist','index\IndexController@teacherlist');
 //个人中心
 Route::any('/index/mycourse','index\IndexController@mycourse');
+
+
 //注册
-Route::any('/index/register','index\IndexController@register');
+Route::any('/index/register','index\LoginController@register');
+Route::any('/index/regs','index\LoginController@regs');
 //登录
-Route::any('/index/login','index\IndexController@login');
+Route::get('/index/login','index\LoginController@login');
+Route::post('/index/logins','index\LoginController@logins');
 
 
 //讲师模板
@@ -40,3 +44,5 @@ Route::any('/index/coursecont','index\IndexController@coursecont');
 Route::any('/index/coursecont1','index\IndexController@coursecont1');
 //讲师课程视频页面
 Route::any('/index/video','index\IndexController@video');
+//讲师课程评论页面
+Route::any('/index/comment','index\IndexController@comment');
