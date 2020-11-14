@@ -17,8 +17,18 @@ use Illuminate\Support\Facades\Route;
 // });
 //首页
 Route::get('/','index\IndexController@index');
-//首页课程列表
-Route::any('/index/courselist','index\IndexController@courselist');
+Route::get('/ajaxIndexCourse','index\IndexController@ajaxIndexCourse');//ajax课程回调
+//课程列表页
+Route::prefix('/courselist')->group(function(){
+    Route::get('/','index\CourseListController@courselist');//课程列表页
+    
+});
+Route::prefix('/detail')->group(function(){
+    Route::get('/{slug}.html','index\DetailController@getdetail');//课程详情页
+    Route::get('/getencrypt','index\DetailController@getencrypt');//伪静态加密
+});
+
+
 //首页咨询列表
 Route::any('/index/articlelist','index\IndexController@articlelist');
 //首页讲师列表
