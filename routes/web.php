@@ -50,5 +50,6 @@ Route::get('/index/regteacher/create','index\TeacherController@create');
 Route::post('/index/regteacher/story','index\TeacherController@story');
 // 讲师执行添加，注册方法
 Route::post('/index/regteacher/getsun','index\TeacherController@getsun');
+// 讲师注册成功跳转页面
 
 
