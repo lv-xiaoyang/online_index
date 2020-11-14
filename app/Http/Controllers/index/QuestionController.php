@@ -1,52 +1,45 @@
 <?php
 
 namespace App\Http\Controllers\Index;
-
+use App\Http\Controllers\index\Common;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\QuestionModel;
 
 
-class QuestionController extends Controller
+class QuestionController extends Common
 {
     //导航栏
     // 展示
     public function index(){
-    	$danwhere = [
-    		'question_type_id'=>1
-    	];
-    	$duowhere = [
-    		'question_type_id'=>2
-    	];
-    	$jianwhere = [
-    		'question_type_id'=>3
-    	];
-    	$dandata = QuestionModel::where($danwhere)->get();
-    	$duodata = QuestionModel::where($duowhere)->get();
-    	$jiandata = QuestionModel::where($jianwhere)->get();
-        $data = QuestionModel::paginate(4);
+    	//获取全部题
+        $url = "questionindex";
+        $data = $this->getGet($url);
+        // dd($data);
+        $data = json_decode($data);
     	
     	return view("question.index",['data'=>$data]);
     }
     public function dan(){
-        $where = [
-            'question_type_id'=>1
-        ];
-        $data = QuestionModel::where($where)->paginate(4);
+        //获取全部单选题
+        $url = "questiondan";
+        $data = $this->getGet($url);
+        $data = json_decode($data);
+
         return view("question.index",['data'=>$data]);
     }
     public function duo(){
-        $where = [
-            'question_type_id'=>2
-        ];
-        $data = QuestionModel::where($where)->paginate(4);
+        //获取全部多选题
+        $url = "questionduo";
+        $data = $this->getGet($url);
+        $data = json_decode($data);
         return view("question.index",['data'=>$data]);
     }
     public function jian(){
-        $where = [
-            'question_type_id'=>3
-        ];
-        $data = QuestionModel::where($where)->paginate(4);
+        //获取全部简答题
+        $url = "questionjian";
+        $data = $this->getGet($url);
+        $data = json_decode($data);
         return view("question.index",['data'=>$data]);
     }
 }

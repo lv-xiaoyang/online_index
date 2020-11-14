@@ -1,5 +1,5 @@
 
-@extends("layouts.head")
+@extends("layouts.tail")
 @section("title","咨询首页")
 @section("content")
 <!-- InstanceBeginEditable name="EditRegion1" -->
@@ -24,11 +24,11 @@
     
     @foreach($data as $k=>$v)
     <div class="articlelist">
-        <h3><a class="artlink" href="/index/article">{{$v->question_name}}</a></h3>
+        <h3><a class="artlink" href="/index/article"></a></h3>
         <p>2015年第一季度山西省会计从业资格考务日程安排已公布，望各位同学周知。 按照《山西省财政厅关于印发会计从业资格无纸化考试管理规定的通知》(晋财会【2014】5号)，现将我省2015年一季度会计从业资格考试考务安排如下。 一、考试时间： 1、网上报名时间：3月2...</p>
         <p class="artilabel">
         <span class="ask_label">热门题</span>
-        <b class="labtime">{{date('Y-m-d H:i:s',$v->question_time)}}</b>
+        <b class="labtime"></b>
         </p>
         <div class="clearh"></div>
     </div>

@@ -11,6 +11,10 @@
 <link rel="stylesheet" href="/static/css/tab.css" media="screen">
 <script src="/static/js/jquery.tabs.js"></script>
 <script src="/static/js/mine.js"></script>
+
+
+<link rel="stylesheet" href="/static/css/article.css">
+
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
