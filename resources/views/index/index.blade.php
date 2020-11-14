@@ -398,102 +398,26 @@ function nTabs(thisObj,Num){
     
     <div>
         <ul id="myTab3">
-            <li class="current" onClick="nTabs(this,0);">IT技能</li>
-            <li class="norma3" onClick="nTabs(this,1);">IT技能</li>
-            <li class="norma3" onClick="nTabs(this,2);">IT技能</li>
-            <li class="norma3" onClick="nTabs(this,3);">IT技能</li>
+			@foreach($type_data as $v)
+            <li class="current" value="{{$v->type_id}}" onClick="nTabs(this,0);">{{$v->type_name}}</li>
+			@endforeach
         </ul>
         <div class="clearh"></div>
         <div>
            <ul class="courseul" id="myTab3_Content0" style="display: block;">
+		   @foreach($course_data as $v)
             <li>
             	<div class="courselist">
-                <img width="263" style="border-radius:3px 3px 0 0;" src="/static/images/c1.jpg" >
-                <p class="courTit">HTTP下载课程</p>
+                <img width="263" style="border-radius:3px 3px 0 0;" src="{{env('IMG_URL')}}{{$v->course_img}}" >
+                <p class="courTit">{{$v->course_name}}</p>
                 <div class="gray">
                 <span>1小时前更新</span>
-                <span class="sp1">1255555人学习</span>
+                <span class="sp1">{{$v->course_view}}人学习</span>
                 <div style="clear:both"></div>
                 </div>
                 </div>
            </li>
-           <li>
-                <div class="courselist">
-                <img width="263" style="border-radius:3px 3px 0 0;" src="/static/images/c1.jpg" >
-                <p class="courTit">HTTP下载课程</p>
-                <div class="gray">
-                <span>1小时前更新</span>
-                <span class="sp1">1255555人学习</span>
-                <div style="clear:both"></div>
-                </div>
-                </div>
-            </li>
-            <li>
-                <div class="courselist">
-                <img width="263" style="border-radius:3px 3px 0 0;" src="/static/images/c1.jpg" >
-                <p class="courTit">HTTP下载课程</p>
-                <div class="gray">
-                <span>1小时前更新</span>
-                <span class="sp1">1255555人学习</span>
-                <div style="clear:both"></div>
-                </div>
-                </div>
-            </li>
-            <li>
-                <div class="courselist">
-                <img width="263" style="border-radius:3px 3px 0 0;" src="/static/images/c1.jpg" >
-                <p class="courTit">HTTP下载课程</p>
-                <div class="gray">
-                <span>1小时前更新</span>
-                <span class="sp1">1255555人学习</span>
-                <div style="clear:both"></div>
-                </div>
-                </div>
-            </li>
-            <li>
-                <div class="courselist">
-                <img width="263" style="border-radius:3px 3px 0 0;" src="/static/images/c1.jpg" >
-                <p class="courTit">HTTP下载课程</p>
-                <div class="gray">
-                <span>1小时前更新</span>
-                <span class="sp1">1255555人学习</span>
-                <div style="clear:both"></div>
-                </div>
-                </div>
-            </li>
-            <li>
-                <div class="courselist">
-                <img width="263" style="border-radius:3px 3px 0 0;" src="/static/images/c1.jpg" >
-                <p class="courTit">HTTP下载课程</p>
-                <div class="gray">
-                <span>1小时前更新</span>
-                <span class="sp1">1255555人学习</span>
-                <div style="clear:both"></div>
-                </div>
-                </div>
-            </li>
-            <li>
-                <div class="courselist">
-                <img width="263" style="border-radius:3px 3px 0 0;" src="/static/images/c1.jpg" >
-                <p class="courTit">HTTP下载课程</p>
-                <div class="gray">
-                <span>1小时前更新</span>
-                <span class="sp1">1255555人学习</span>
-                <div style="clear:both"></div>
-                </div>
-                </div>
-            </li>
-            <li>
-                <div class="courselist">
-                <img width="263" style="border-radius:3px 3px 0 0;" src="/static/images/c1.jpg" >
-                <p class="courTit">HTTP下载课程</p>
-                <div class="gray">
-                <span>1小时前更新</span>
-                <span class="sp1">1255555人学习</span>
-                <div style="clear:both"></div>
-                </div>
-                </div>
-            </li>.
+			@endforeach
            <div class="clearh"></div>
           </ul>               
         </div>

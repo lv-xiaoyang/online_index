@@ -2,6 +2,7 @@
 <!doctype html>
 <html><!-- InstanceBegin template="/Templates/dwt.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
+  <meta name="_token" content="{{ csrf_token() }}"/>
 <meta charset="utf-8">
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>谋刻职业教育在线测评与学习平台</title>

@@ -12,11 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('index.index');
-});
+// Route::get('/', function () {
+//     return view('index.index');
+// });
 //首页
-Route::any('/index/index','index\IndexController@index');
+Route::get('/','index\IndexController@index');
 //首页课程列表
 Route::any('/index/courselist','index\IndexController@courselist');
 //首页咨询列表
@@ -25,10 +25,14 @@ Route::any('/index/articlelist','index\IndexController@articlelist');
 Route::any('/index/teacherlist','index\IndexController@teacherlist');
 //个人中心
 Route::any('/index/mycourse','index\IndexController@mycourse');
+
+
 //注册
-Route::any('/index/register','index\IndexController@register');
+Route::any('/index/register','index\LoginController@register');
+Route::any('/index/regs','index\LoginController@regs');
 //登录
-Route::any('/index/login','index\IndexController@login');
+Route::get('/index/login','index\LoginController@login');
+Route::post('/index/logins','index\LoginController@logins');
 
 
 //讲师模板
@@ -40,6 +44,10 @@ Route::any('/index/coursecont','index\IndexController@coursecont');
 Route::any('/index/coursecont1','index\IndexController@coursecont1');
 //讲师课程视频页面
 Route::any('/index/video','index\IndexController@video');
+
+//讲师课程评论页面
+Route::any('/index/comment','index\IndexController@comment');
+
 //个人中心讲师申请页面
 Route::any('/index/regteacher','index\IndexController@regteacher');
 // 讲师登录页面
@@ -50,8 +58,6 @@ Route::get('/index/regteacher/create','index\TeacherController@create');
 Route::post('/index/regteacher/story','index\TeacherController@story');
 // 讲师执行添加，注册方法
 Route::post('/index/regteacher/getsun','index\TeacherController@getsun');
-
-
 
 
 
@@ -66,4 +72,5 @@ Route::prefix("question")->group(function(){
 	// 简答题展示
 	Route::get("/jian","Index\QuestionController@jian");
 });
+
 
