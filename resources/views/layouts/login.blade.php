@@ -2,6 +2,7 @@
 <!doctype html>
 <html><!-- InstanceBegin template="/Templates/dwt.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
+  <meta name="_token" content="{{ csrf_token() }}"/>
 <meta charset="utf-8">
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>谋刻职业教育在线测评与学习平台</title>
@@ -27,8 +28,9 @@
         	<li><a href="/index/courselist" class="link1 current">课程</a></li>
             <li><a href="/index/articlelist" class="link1">资讯</a></li>
             <li><a href="/index/teacherlist" class="link1">讲师</a></li>
-            <li><a href="/index/exam_index" class="link1" target="_blank">题库</a></li>
+            <li><a href="/question/index" class="link1" target="_blank">题库</a></li>
             <li><a href="/index/askarea" class="link1" target="_blank">问答</a></li>
+            <li><a href="#" class="link1" target="_blank">考试</a></li>
             
         </ul>
         <span class="massage">
@@ -44,6 +46,7 @@
         </span>--> 
         	<!--未登录-->
         	<span class="exambtn_lore">
+            
                  <a class="tkbtn tklog" href="/index/login">登录</a>
                  <a class="tkbtn tkreg" href="/index/register">注册</a>
             </span>

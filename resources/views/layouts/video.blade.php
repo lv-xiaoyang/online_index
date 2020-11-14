@@ -2,6 +2,7 @@
 <!doctype html>
 <html>
 <head>
+	<meta name="_token" content="{{ csrf_token() }}"/>
 <meta charset="utf-8">
 <title>谋刻职业教育在线测评与学习平台</title>
 <script src="/static/js/jquery-1.8.0.min.js"></script>

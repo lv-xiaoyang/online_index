@@ -42,40 +42,15 @@
 <div class="coursetext">
 	<div class="box demo2" style="position:relative">
 			<ul class="tab_menu">
-                <li class="current course1"><a href="/index/coursecont1">章节</a></li>
+				 <li class="current course1"><a href="/index/coursecont1">章节</a></li>
                 <li class="current course1"><a href="/index/comment">评价</a></li>
                 <li class="current course1"><a href="#">问答</a></li>
                 <li class="current course1"><a href="#">资料区</a></li>
 			</ul>
 			<!--<a class="fombtn" style=" position:absolute; z-index:3; top:-10px; width:80px; text-align:center;right:0px;" href="#">下载资料包</a>-->
 			<div class="tab_box">
-				<div>
-					<dl class="mulu noo">
-					<div>
-                        <dt class="mulu_title"><span class="mulu_img"></span>第一章&nbsp;&nbsp;总论
-						<span class="mulu_zd">+</span></dt>
-						<div class="mulu_con">
-							<dd class="smalltitle"><strong>第一节&nbsp;&nbsp;会计的概念与目标</strong></dd>
-							<a href="/index/video"><dd><strong class="cataloglink">课时1：会计的概念与目标1</strong><i class="fini nn"></i></dd></a>
-							<a href="/index/video"><dd><strong class="cataloglink">课时2：会计的概念与目标2</strong><i class="fini fn"></i></dd></a>
-							<dd class="/index/video"><strong>第二节&nbsp;&nbsp;会计的职能与方法</strong></dd>
-							<a href="/index/video"><dd><strong class="cataloglink">课时1：会计的职能与方法1</strong><i class="fini nn"></i></dd></a>
-							<a href="/index/video"><dd><strong class="cataloglink">课时2：会计的职能与方法2</strong><i class="fini fn"></i></dd></a>
-							<a href="/index/video"><dd><strong class="cataloglink">课时1：会计的职能与方法3</strong><i class="fini ff"></i></dd></a>
-						</div>
-					</div>
-					<div>
-                        <dt class="mulu_title"><span class="mulu_img"></span>第二章&nbsp;&nbsp;会计要素与会计等式
-						<span class="mulu_zd">+</span></dt>
-						<div class="mulu_con">
-							<dd class="smalltitle"><strong>第一节&nbsp;&nbsp;会计要素</strong></dd>
-							<a href="/index/video"><dd><strong class="cataloglink">课时1：会计要素与会计等式1</strong><i class="fini nn"></i></dd></a>
-							<a href="/index/video"><dd><strong class="cataloglink">课时2：会计要素与会计等式2</strong><i class="fini nn"></i></dd></a>
-						</div>
-					</div>
-                   </dl>                   
-				</div>
-				<div class="hide">
+				
+				
 					<div>
                     <div id="star">
                         <span class="startitle">请打分</span>
@@ -318,8 +293,8 @@
 		</div>
    
     </div>
-</div> -->
-
+</div>
+ -->
 
 <div class="clearh"></div>
 </div>

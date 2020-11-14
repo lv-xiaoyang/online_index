@@ -2,6 +2,7 @@
 <!doctype html>
 <html>
 <head>
+  <meta name="_token" content="{{ csrf_token() }}"/>
 <meta charset="utf-8">
 <title>谋刻职业教育在线测评与学习平台</title>
 
@@ -45,8 +46,9 @@ function nTabs(thisObj,Num){
           <li><a href="/index/courselist" class="link1 current">课程</a></li>
             <li><a href="/index/articlelist" class="link1">资讯</a></li>
             <li><a href="/index/teacherlist" class="link1">讲师</a></li>
-            <li><a href="/index/exam_index" class="link1" target="_blank">题库</a></li>
+            <li><a href="/question/index" class="link1" target="_blank">题库</a></li>
             <li><a href="/index/askarea" class="link1" target="_blank">问答</a></li>
+            <li><a href="#" class="link1" target="_blank">考试</a></li>
         </ul>
         
         <span class="massage">
@@ -67,6 +69,7 @@ function nTabs(thisObj,Num){
             <span id="lne" style="display:none" onMouseOut="logclose()" onMouseOver="logmine()">
                 <span style="background:#fff;">
                   <a href="/index/mycourse" style="width:70px; display:block;" class="link2 he ico" target="_blank">sherley</a>
+                 
                 </span>
                 <div class="clearh"></div>
                 <ul class="logmine" >
