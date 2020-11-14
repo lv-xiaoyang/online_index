@@ -5,7 +5,7 @@
 
 <meta charset="utf-8">
 <!-- InstanceBeginEditable name="doctitle" -->
-<meta name="_token" content="{{ csrf_token() }}"/>
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <title>谋刻职业教育在线测评与学习平台</title>
 <!-- <link rel="stylesheet" href="/js/uploadify/uploadify.css"> -->
 <link rel="stylesheet" href="/static/css/course.css"/>
@@ -72,14 +72,14 @@
 <!-- InstanceBeginEditable name="EditRegion1" -->
 <div class="register" style="background:url(/static/images/13.jpg) right center no-repeat #fff">
 <h2>讲师注册</h2>
-<form action=""  id="banner-upload"  enctype="multipart/form-data">
+<form id="banner-upload"  enctype="multipart/form-data"  class="banner-upload">
     <div>
     <p class="formrow"><label class="control-label" for="register_email">讲师昵称</label>
     <input type="text" name="lereg_name" id="lereg_name">
     <span id="text-name" ></span>
     </div>
     <div>
-    <p class="formrow"><label class="control-label" for="register_email">讲师履历</label>
+    <p class="formrow"><label class="control-label" for="register_email">讲师简介</label>
     <textarea name="lereg_res" id="lereg_res" cols="50" rows="5"></textarea> 
     <span id="text-res"></span>
     </div>
@@ -95,6 +95,13 @@
     </select>
     <span id="text-edu"></span>
     </div>
+
+    <div>
+    <p class="formrow"><label class="control-label" for="register_email">讲师授课风格</label>
+    <textarea name="lereg_style" id="lereg_style" cols="50" rows="5"></textarea> 
+    <span id="text-style"></span>
+    </div>
+
     <div>
     <p class="formrow"><label class="control-label" for="register_email">毕业院校</label>
     <input type="text" id="lereg_school" name="lereg_school">
@@ -126,7 +133,7 @@
     <span id="text-time"></span>
     </div>
     <div class="loginbtn reg">
-    <button  class="uploadbtn ub1" id="button">注册</button>
+        <button  class="uploadbtn ub1"  id="button">注册</button>
     </div>
 
 </form>
@@ -181,78 +188,81 @@
         return false;
     };
    
-    $("#button").click(function(){
+    // $("#button").click(function(){
+    //     // alert(111);
+    //     var lereg_name = $("#lereg_name").val();
+    //     var lereg_res = $("#lereg_res").val();
+    //     var lereg_edu=$("#lereg_edu option:selected").val();
         
-        var lereg_name = $("#lereg_name").val();
-        var lereg_res = $("#lereg_res").val();
-        var lereg_edu=$("#lereg_edu option:selected").val();
+    //     var lereg_school = $("#lereg_school").val();
+    //     var lereg_magor = $("#lereg_magor").val();
+    //     var lereg_time=$("#lereg_time option:selected").val();
+    //     // var lereg_style=$("#lereg_style").val();
+    //     // console.log(lereg_style);
+    //     // return false;
+    //     if(lereg_name==""){
+    //         $("#text-name").html("<font color=red>*昵称不能为空</font>");
+    //         return false;
+    //     }
+    //     if(lereg_res==""){
+    //         $("#text-res").html("<font color=red>*讲师履历不可为空</font>");
+    //         return false;
+    //     }
+    //     //  if(lereg_style==""){
+    //     //     $("#text-style").html("<font color=red>*讲师授课风格不可为空</font>");
+    //     //     return false;
+    //     // }
+    //     if(lereg_school==''){
+    //     	$("#text-school").html("<font color=red>*毕业院校不可为空</font>");
+    //     	return false;
+    //     };
+    //     if(lereg_magor==''){
+    //     	$("#text-magor").html("<font color=red>*所学专业不可为空</font>");
+    //     	return false;
+    //     };
+    //     if(lereg_edu==""){
+    //         $("#text-edu").html("<font color=red>*请选择学历</font>");
+    //         return false;
+    //     }
+    //     if(lereg_time==""){
+    //         $("#text-time").html("<font color=red>*请选择从业时长</font>");
+    //         return false;
+    //     }
+    //     if(lereg_qual==""){
+    //         $("#text-qual").html("<font color=red>*请上传教师资格证证件照</font>");
+    //         return false;
+    //     }
+    //     })
+    // //     //csrf 
+    // //     // $.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
         
-        var lereg_school = $("#lereg_school").val();
-        var lereg_magor = $("#lereg_magor").val();
-        var lereg_time=$("#lereg_time option:selected").val();
-        if(lereg_name==""){
-            $("#text-name").html("<font color=red>*昵称不能为空</font>");
-            return false;
-        }
-        if(lereg_res==""){
-            $("#text-res").html("<font color=red>*讲师履历不可为空</font>");
-            return false;
-        }
-        if(lereg_school==''){
-        	$("#text-school").html("<font color=red>*毕业院校不可为空</font>");
-        	return false;
-        };
-        if(lereg_magor==''){
-        	$("#text-magor").html("<font color=red>*所学专业不可为空</font>");
-        	return false;
-        };
-        if(lereg_edu==""){
-            $("#text-edu").html("<font color=red>*请选择学历</font>");
-            return false;
-        }
-        if(lereg_time==""){
-            $("#text-time").html("<font color=red>*请选择从业时长</font>");
-            return false;
-        }
-        if(lereg_qual==""){
-            $("#text-qual").html("<font color=red>*请上传教师资格证证件照</font>");
-            return false;
-        }
-
-        $(document).on('click','#button',function(a){
-            $(function(){
-                $("[data-toggle='popover']").popover();
-            });0
-            a.preventDefault();
-            var formData =new FormData(document.getElementById('banner-upload'))
-            $.ajax({
-            headers:{
-                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-            },
-            url:"{{url('/index/regteacher/story')}}",
-            type:"post",
-            dataType:"json",
-            processData: false,
-            contentType: false,
+    // });
+    $(document).on('click','#button',function(){
+            
+        var formData = new FormData(document.getElementById('banner-upload'));
+        $.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
+        $.ajax({
+            url:'/index/regteacher/story',
+            type:'post',
             data:formData,
+            contentType: false,
+            processData: false,
             success:function(res){
-                    if(res.code==0){  
-                        location.href="http://www.onlineadmin.com/";
-                    }else{
-                        alert('跳转失败');
-                    };
-                   
-
+                if(res.code==0001){
+                    if(window.confirm('添加成功，请等待审核')){
+                        location.href="/index/teacherlist";
+                    }
+                }else{
+                    alert(res.msg);
+                }
             }
         });
-        
-        
-        
-        })
-        //csrf 
-        // $.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
-        
     });
+        
+    $(document).on('click','#button',function(){
+        //跳转地址
+        // location.href="/index/teacherlist";
+})
 
 
 

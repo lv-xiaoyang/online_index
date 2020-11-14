@@ -6,24 +6,10 @@
 <meta charset="utf-8">
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>谋刻职业教育在线测评与学习平台</title>
-<link rel="stylesheet" href="/static/css/course.css"/>
-<link rel="stylesheet" href="/static/css/member.css"/>
-<script src="/static/js/jquery-1.8.0.min.js"></script>
-<link rel="stylesheet" href="/static/css/tab.css" media="screen">
-<script src="/static/js/jquery.tabs.js"></script>
-<script src="/static/js/mine.js"></script>
-<script type="text/javascript">
-$(function(){
 
-	
-	$('.demo2').Tabs({
-		event:'click'
-	});
-	
-	
-	
-});	
-</script>
+<link rel="stylesheet" href="/static/css/article.css">
+<script src="/static/js/jquery-1.8.0.min.js"></script>
+<script src="/static/js/mine.js"></script>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
@@ -33,10 +19,10 @@ $(function(){
 <body>
 
 <div class="head" id="fixed">
-	<div class="nav">
-    	<span class="navimg"><a href="/index/index"><img border="0" src="/static/images/logo.png"></a></span>
+    <div class="nav">
+        <span class="navimg"><a href="/index/index"><img border="0" src="/static/images/logo.png"></a></span>
         <ul class="nag">
-        	<li><a href="/index/courselist" class="link1 current">课程</a></li>
+           <li><a href="/index/courselist" class="link1 current">课程</a></li>
             <li><a href="/index/articlelist" class="link1">资讯</a></li>
             <li><a href="/index/teacherlist" class="link1">讲师</a></li>
             <li><a href="/question/index" class="link1" target="_blank">题库</a></li>
@@ -46,17 +32,17 @@ $(function(){
         </ul>
         <span class="massage">
             <!--<span class="select">
-        	<a href="#" class="sort">课程</a>
-        	<input type="text" value="关键字"/>
+            <a href="#" class="sort">课程</a>
+            <input type="text" value="关键字"/>
             <a href="#" class="sellink"></a>
             <span class="sortext">
-            	<p>课程</p>
+                <p>课程</p>
                 <p>题库</p>
                 <p>讲师</p>
             </span>
         </span>--> 
-        	<!--未登录-->
-        	<span class="exambtn_lore">
+            <!--未登录-->
+            <span class="exambtn_lore">
                  <a class="tkbtn tklog" href="/index/login">登录</a>
                  <a class="tkbtn tkreg" href="/index/register">注册</a>
             </span>
@@ -84,7 +70,6 @@ $(function(){
 
 <!-- 内容部分 -->
 @yield("content")
-
 
 
 <div class="foot">

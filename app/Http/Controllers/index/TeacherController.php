@@ -26,31 +26,47 @@ class TeacherController extends Controller
     // }
 
     public function story(Request $request){
-        // $post = request()->except(['_token']);
-        // if (request()->hasFile('lereg_qual')){
-        //     $post['lereg_qual'] = $this->upload('lereg_qual');
-        // };
+        // echo 11;die;
         // 接视图ajax传来的值
         $lereg_name = request()->post('lereg_name');
+        if(!$lereg_name){
+            echo json_encode(['code'=>0002,"msg"=>"昵称不可为空"]);die;
+        }
         // var_dump($lereg_name);
         $lereg_res = request()->lereg_res;
-        
+        if(!$lereg_res){
+            echo json_encode(['code'=>0002,"msg"=>"简介不可为空"]);die;
+        }
         $lereg_edu = request()->lereg_edu;
+        if(!$lereg_edu){
+            echo json_encode(['code'=>0002,"msg"=>"学历不可为空"]);die;
+        }
         $lereg_school = Request()->lereg_school;
+        if(!$lereg_school){
+            echo json_encode(['code'=>0002,"msg"=>"学校不可为空"]);die;
+        }
         $lereg_magor = request()->lereg_magor;
-        
+        if(!$lereg_magor){
+            echo json_encode(['code'=>0002,"msg"=>"专业不可为空"]);die;
+        }
+        $lereg_qual=request()->lereg_qual;
+        if(!$lereg_qual){
+            echo json_encode(['code'=>0002,"msg"=>"教师证件照不可为空"]);die;
+        }
         $lereg_time = request()->lereg_time;
+        $lereg_style = request()->lereg_style;
+        // dd($lereg_style);
+        if(!$lereg_style){
+            echo json_encode(['code'=>0002,"msg"=>"授课风格不可为空"]);die;
+        }
         
-        // $data = [
-        //     'lereg_name'=>$lereg_name,
-        //     'lereg_res'=>$lereg_res,
-        //     'lereg_edu'=>$lereg_edu,
-        //     'lereg_school'=>$lereg_school,
-        //     'lereg_magor'=>$lereg_magor,
-        //     // 'lereg_qual'=>$lereg_qual,
-        //     'lereg_time'=>$lereg_time,
-        // ];
-        
+        //文件上传验证
+        if(empty($lereg_qual)){
+            
+            return ['code'=>0002,'msg'=>'请上传文件'];die;
+        }
+        $lereg_qual=$this->fileImg($lereg_qual);
+        // dd($lereg_qual);
         $tea = new TeacherModel();
         $tea->lereg_name=$lereg_name;
         $tea->lereg_res=$lereg_res;
@@ -58,16 +74,25 @@ class TeacherController extends Controller
         $tea->lereg_school=$lereg_school;
         $tea->lereg_magor=$lereg_magor;
         $tea->lereg_time=$lereg_time;
+        $tea->lereg_qual=$lereg_qual;
+        $tea->lereg_style=$lereg_style;
         $res = $tea->save();
-
-
-
+        // dd($res);
         if($res){
-            echo json_encode(['code'=>0,'msg'=>"ok"]);
+            return  ['code'=>0001,'msg'=>"ok"];
         }else{
-            echo json_encode(['code'=>1,"msg"=>"no"]);
+            return ['code'=>0002,"msg"=>"no"];
         }
 
 
+    }
+
+
+    //图片上传处理
+    public function fileImg($lereg_qual){
+        if ($lereg_qual->isValid()){
+            $path = $lereg_qual->store('images');
+        }
+        return $path;
     }
 }
