@@ -52,3 +52,18 @@ Route::post('/index/regteacher/story','index\TeacherController@story');
 Route::post('/index/regteacher/getsun','index\TeacherController@getsun');
 
 
+
+
+
+//前台题库模块
+Route::prefix("question")->group(function(){
+	//讲师模块导航栏展示
+	Route::get("/index","Index\QuestionController@index");
+	//单选题展示
+	Route::get("/dan","Index\QuestionController@dan");
+	// 多选题展示
+	Route::get("/duo","Index\QuestionController@duo");
+	// 简答题展示
+	Route::get("/jian","Index\QuestionController@jian");
+});
+
