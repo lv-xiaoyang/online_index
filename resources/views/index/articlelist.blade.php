@@ -1,5 +1,5 @@
 
-@extends("layouts.head")
+@extends("layouts.tail")
 @section("title","咨询首页")
 @section("content")
 <!-- InstanceBeginEditable name="EditRegion1" -->

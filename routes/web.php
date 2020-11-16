@@ -75,13 +75,14 @@ Route::post('/index/regteacher/getsun','index\TeacherController@getsun');
 //前台题库模块
 Route::prefix("question")->group(function(){
 	//讲师模块导航栏展示
-	Route::get("/index","Index\QuestionController@index");
+	Route::get("/index","Index\QuestionController@index")->name("index");
 	//单选题展示
-	Route::get("/dan","Index\QuestionController@dan");
+	Route::get("/dan","Index\QuestionController@dan")->name('dan');
 	// 多选题展示
-	Route::get("/duo","Index\QuestionController@duo");
+	Route::get("/duo","Index\QuestionController@duo")->name('duo');
 	// 简答题展示
-	Route::get("/jian","Index\QuestionController@jian");
+	Route::get("/jian","Index\QuestionController@jian")->name("jian");
+	
 });
 
 
