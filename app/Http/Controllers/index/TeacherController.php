@@ -75,7 +75,7 @@ class TeacherController extends Controller
     //图片上传处理
     public function fileImg($lereg_qual){
         if ($lereg_qual->isValid()){
-            $path = $lereg_qual->store('images');
+            $path = $lereg_qual->store('img');
         }
         return $path;
     }

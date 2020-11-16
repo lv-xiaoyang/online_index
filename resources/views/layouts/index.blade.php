@@ -62,10 +62,10 @@ function nTabs(thisObj,Num){
        		
             
             
-            <a href="mycourse.html"  onMouseOver="logmine()" style="width:70px" class="link2 he ico" target="_blank">sherley</a>
+            <a href="/index/mycourse"  onMouseOver="logmine()" style="width:70px" class="link2 he ico" target="_blank">sherley</a>
             <span id="lne" style="display:none" onMouseOut="logclose()" onMouseOver="logmine()">
                 <span style="background:#fff;">
-                	<a href="mycourse.html" style="width:70px; display:block;" class="link2 he ico" target="_blank">sherley</a>
+                	<a href="/index/mycourse" style="width:70px; display:block;" class="link2 he ico" target="_blank">sherley</a>
                 </span>
                 <div class="clearh"></div>
                 <ul class="logmine" >

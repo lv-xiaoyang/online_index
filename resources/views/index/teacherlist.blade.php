@@ -11,7 +11,7 @@
 		<div class="coursepic tecti">
 			<div class="teaimg" lereg_id="{{$v->lereg_id}}">
 				<a target="_blank" name="teacher">
-					<img  src="{{env('IMG_URL')}}{{$v->lereg_qual}}" width="150">
+					<img  src="/{{$v->lereg_qual}}" width="150">
 				</a>
 			</div>
 			<div class="teachtext">
