@@ -2,14 +2,14 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>谋刻职业教育在线测评与学习平台- @yield('title')</title>
+<title>谋刻职业教育在线测评与学习平台 - @yield('title')</title>
 
-<script src="js/jquery-1.8.0.min.js"></script>
-<script type="text/javascript" src="js/rev-setting-1.js"></script>
-<script type="text/javascript" src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-<link rel="stylesheet" href="css/style.css"/>
-<link rel="stylesheet" href="css/tab.css" media="screen">
-<link rel="stylesheet" type="text/css" href="css/main.css" id="main-css">
+<script src="/status/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="/status/js/rev-setting-1.js"></script>
+<script type="text/javascript" src="/statuc/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+<link rel="stylesheet" href="/status/css/style.css"/>
+<link rel="stylesheet" href="/status/css/tab.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/status/css/main.css" id="main-css">
 <!--课程选项卡-->
 <script type="text/javascript">
 function nTabs(thisObj,Num){
@@ -39,7 +39,7 @@ function nTabs(thisObj,Num){
 
 <div class="head" id="fixed">
 	<div class="nav">
-    	<span class="navimg"><a href="index.html"><img border="0" src="images/logo.png"></a></span>
+    	<span class="navimg"><a href="index.html"><img border="0" src="/status/images/logo.png"></a></span>
         <ul class="nag">
         	<li><a href="courselist.html" class="link1">课程</a></li>
             <li><a href="articlelist.html" class="link1">资讯</a></li>
@@ -86,10 +86,10 @@ function nTabs(thisObj,Num){
 <div class="fcontainer">
       <div class="fwxwb"> 
 	       <div class="fwxwb_1">
-		       <span>关注微信</span><img width="95" alt="" src="images/num.png">
+		       <span>关注微信</span><img width="95" alt="" src="/status/images/num.png">
 		   </div>
            <div>
-               <span>关注微博</span><img width="95" alt="" src="images/wb.png">
+               <span>关注微博</span><img width="95" alt="" src="/status/images/wb.png">
 		   </div>	              
       </div>
       <div class="fmenu">
@@ -110,10 +110,10 @@ function nTabs(thisObj,Num){
 	</div>
 	</span>
 	<span class="barico em" style="position:relative">
-	  <img src="images/num.png" width="75" class="showem">
+	  <img src="/status/images/num.png" width="75" class="showem">
 	</span>
 	<span class="barico wb" style="position:relative">
-	  <img src="images/wb.png" width="75" class="showwb">
+	  <img src="/status/images/wb.png" width="75" class="showwb">
 	</span>	
 	<span class="barico top" id="top">置顶</span>	
 </div>

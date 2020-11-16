@@ -1,19 +1,18 @@
-
-@extends("layouts.tail")
+@extends("layouts.coursecont")
 @section("title","课程首页")
 @section("content")
 <!-- InstanceBeginEditable name="EditRegion1" -->
 <div class="coursecont">
 <div class="coursepic">
-	<div class="course_img"><img src="/static/images/c1.jpg" width="500"></div>
+	<div class="course_img"><img src="{{env('IMG_URL')}}{{$first_data->course_img}}" width="500"></div>
     <div class="coursetitle">
    		<a class="state">{{$first_data->course_status==1?'更新中':'已完结'}}</a>
     	<h2 class="courseh2">{{$first_data->course_name}}</h2>    
         <p class="courstime">总课时：<span class="course_tt">{{$first_data->course_num}}课时</span></p>
 		<p class="courstime">课程时长：<span class="course_tt">{{$first_data->course_video_time_h}}小时{{$first_data->course_video_time_i}}分</span></p>
         <p class="courstime">学习人数：<span class="course_tt">{{$first_data->course_view}}人</span></p>
-		<p class="courstime" lect_id="{{$first_data->lect_id}}">讲师：{{$first_data->lect_name}}</p>
-		<p class="courstime">课程评价：<img width="71" height="14" src="/static/images/evaluate5.png">&nbsp;&nbsp;<span class="hidden-sm hidden-xs">5.0分（10人评价）</span></p>
+		<p class="courstime" lect_id="{{$first_data->lect_id}}">讲师：{{$lect_name}}老师</p>
+		<p class="courstime">课程评价：<img width="71" height="14" src="/status/images/evaluate5.png">&nbsp;&nbsp;<span class="hidden-sm hidden-xs">5.0分（10人评价）</span></p>
         <!--<p><a class="state end">完结</a></p>-->      
         <span class="coursebtn"><a class="btnlink" href="/index/coursecont1">加入学习</a><a class="codol fx" href="javascript:void(0);" onClick="$('#bds').toggle();">分享课程</a><a class="codol sc" href="#">收藏课程</a></span> 
 		<div style="clear:both;"></div>
@@ -28,7 +27,7 @@
 				<a class="bds_count" data-cmd="count"></a>
 			</div>
             <script>
-			window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"24"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api//static/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+			window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"24"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/status/api//status/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
 			</script>
        </div>
     </div>
@@ -38,42 +37,17 @@
 <div class="clearh"></div>
 <div class="coursetext">
 	<h3 class="leftit">课程简介</h3>
-    <p class="coutex">本课程主要针对重新改版后的新大纲会计从业资格考试的学习，主要为零基础学生顺利通过会计从业考试而设立！内容包括会计基础、财经法规和职业道德、电算化三科视频课程全系列。 本教程为2014最新版教材课程详细讲解，学完后可以直接考证，也可以提高会计业务基础知识</p>
+    <p class="coutex">{{$first_data->course_desc}}</p>
 	<div class="clearh"></div>
 	<h3 class="leftit">课程目录</h3>
     <dl class="mulu">
-    	<dt><a href="/index/coursecont1" class="graylink">第一章&nbsp;&nbsp;总论</a></dt>
-        <dd>内容包括会计基础、财经法规和职业道德、电算化三科视频课程全系列。内容包括会计基础、财经法规和职业道德、电算化三科视频课程全系列</dd>
-   
-    
-    	<dt><a href="#" class="graylink">第二章&nbsp;&nbsp;会计要素与会计等式</a></dt>
-        <dd>内容包括会计基础、财经法规和职业道德、电算化三科视频课程全系列。内容包括会计基础、财经法规和职业道德、电算化三科视频课程全系列</dd>
-    
-    
-    	<dt><a href="#" class="graylink">第三章&nbsp;&nbsp;会计科目与账户</a></dt>
-        <dd>内容包括会计基础、财经法规和职业道德、电算化三科视频课程全系列。内容包括会计基础、财经法规和职业道德、电算化三科视频课程全系列</dd>
-    
-    	<dt><a href="#" class="graylink">第四章&nbsp;&nbsp;会计记账方法</a></dt>
-        <dd>内容包括会计基础、财经法规和职业道德、电算化三科视频课程全系列。内容包括会计基础、财经法规和职业道德、电算化三科视频课程全系列</dd>
-
-		<dt><a href="#" class="graylink">第五章&nbsp;&nbsp;借贷记账法下主要经济业务的账务处理</a></dt>
-        <dd>介绍ISO/OSI七层模型、TCP/IP四层模型、IP地址、DNS、端口、网关等网络知识，为Linux的网络配置打好基础。</dd>
-
-		<dt><a href="#" class="graylink">第六章&nbsp;&nbsp;会计凭证</a></dt>
-        <dd>内容包括会计基础、财经法规和职业道德、电算化三科视频课程全系列。内容包括会计基础、财经法规和职业道德、电算化三科视频课程全系列</dd>
-
-		<dt><a href="#" class="graylink">第七章&nbsp;&nbsp; 会计账簿</a></dt>
-        <dd>介绍ISO/OSI七层模型、TCP/IP四层模型、IP地址、DNS、端口、网关等网络知识，为Linux的网络配置打好基础。</dd>
-
-		<dt><a href="#" class="graylink">第八章&nbsp;&nbsp;账务处理程序</a></dt>
-        <dd>介绍ISO/OSI七层模型、TCP/IP四层模型、IP地址、DNS、端口、网关等网络知识，为Linux的网络配置打好基础。</dd>
-
-		<dt><a href="#" class="graylink">第九章&nbsp;&nbsp; 财产清查</a></dt>
-        <dd>介绍ISO/OSI七层模型、TCP/IP四层模型、IP地址、DNS、端口、网关等网络知识，为Linux的网络配置打好基础。</dd>
-
-		<dt><a href="#" class="graylink">第十章&nbsp;&nbsp;财务报表</a></dt>
-        <dd>内容包括会计基础、财经法规和职业道德、电算化三科视频课程全系列。内容包括会计基础、财经法规和职业道德、电算化三科视频课程全系列</dd>
-    </dl>
+    @foreach($first_data->chapter as $k=>$v)
+    	<dt><a href="/index/coursecont/{{$v['chapter_id']}}" class="graylink">第{{$k+1}}章&nbsp;&nbsp;{{$v['chapter_name']}}</a></dt>
+        @foreach($v['section'] as $kk=>$vv)
+        <dd><a href="">{{$vv['section_name']}}</a></dd>
+        @endforeach
+    @endforeach
+    	
 </div>
 
 <div class="courightext">
@@ -82,11 +56,11 @@
     <h3 class="righttit">授课讲师</h3>
     <div class="teacher">
     <div class="teapic ppi">
-    <a href="/index/teacher" target="_blank"><img src="/static/images/teacher.png" width="80" class="teapicy" title="张民智"></a>
-    <h3 class="tname"><a href="/index/teacher" class="peptitle" target="_blank">张民智</a><p style="font-size:14px;color:#666">会计讲师</p></h3>
+    <a href="/index/teacher" target="_blank"><img src="{{$first_data->lect_img}}" width="80" class="teapicy" title="{{$first_data->lect_name}}"></a>
+    <h3 class="tname"><a href="/index/teacher" class="peptitle" target="_blank">{{$first_data->lect_name}}</a><p style="font-size:14px;color:#666">{{$first_data->course_name}}讲师</p></h3>
     </div>
     <div class="clearh"></div>
-    <p>十年以上Linux从业经验， 培训经验超过八年。在各 个知名培训机构做过金牌 讲师、学科负责人，培训 学员过万人。曾获红帽认 证讲师，微软认证讲师等 资质认证。教学以逻辑性 强、教学细致、知识点准 确著称。</p>
+    <p>{{$first_data->lect_name}}</p>
     </div>
     </div>
 </div>
@@ -95,39 +69,29 @@
     <div class="cr1">
     <h3 class="righttit">课程公告</h3>
     <div class="gonggao">
-	<div class="clearh"></div>
-    <p>人所缺乏的不是才干而是志向，不是成功的能力而是勤劳的意志。<br/>
-	<span class="gonggao_time">2014-12-12 15:01</span>
-	</p>
-	<div class="clearh"></div>
-	<p>请学习的同学在每节课学习后务必做完当节课的测试！<br/>
-	<span class="gonggao_time">2014-12-12 15:01</span>
-	</p>
-	<div class="clearh"></div>
+        @foreach($article_data as $v)
+        <div class="clearh"></div>
+        <p>{{$v['ati_name']}}<br/>
+        <span class="gonggao_time">{{$v['ati_add_time']}}</span>
+        </p>
+        @endforeach
+	    <div class="clearh"></div>
     </div>
     </div>
 </div>
 
 <div class="ctext">
     <div class="cr1">
-    <h3 class="righttit">相关课程</h3>
-    <div class="teacher">
-    <div class="teapic">
-        <a href="#"  target="_blank"><img src="/static/images/c1.jpg" height="60" title="财经法规与财经职业道德"></a>
-        <h3 class="courh3"><a href="#" class="peptitle" target="_blank">财经法规与财经职业道德</a></h3>
-    </div>
-    <div class="clearh"></div>
-    <div class="teapic">
-        <a href="#"  target="_blank"><img src="/static/images/c2.jpg" height="60" title="财经法规与财经职业道德"></a>
-        <h3 class="courh3"><a href="#" class="peptitle" target="_blank">财经法规与财经职业道德</a></h3>
-    </div>
-    <div class="clearh"></div>
-    <div class="teapic">
-        <a href="#"  target="_blank"><img src="/static/images/c3.jpg" height="60" title="财经法规与财经职业道德"></a>
-        <h3 class="courh3"><a href="#" class="peptitle" target="_blank">财经法规与财经职业道德</a></h3>
-    </div>
-    <div class="clearh"></div>
-    </div>
+        <h3 class="righttit">相关课程</h3>
+        <div class="teacher">
+        @foreach($correlation_data as $v)
+            <div class="teapic">
+                <a href="#"  target="_blank"><img src="{{env('APP_URL')}}{{$v['course_img']}}" height="60" title="{{$v['course_name']}}"></a>
+                <h3 class="courh3"><a href="/detail/{{$v['course_id']}}.html" class="peptitle" target="_blank">{{$v['course_name']}}</a></h3>
+            </div>
+            <div class="clearh"></div>
+        @endforeach
+        </div>
     </div>
 </div>
    
