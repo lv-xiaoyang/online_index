@@ -49,7 +49,7 @@ Route::post('/index/logins','index\LoginController@logins');
 
 //讲师模板
 //讲师个人详情页面
-Route::any('/index/teacher/{id}','index\IndexController@teacher');
+Route::post('/index/teacher','index\IndexController@teacher');
 //讲师课程页面
 Route::any('/index/coursecont','index\IndexController@coursecont');
 
@@ -89,4 +89,10 @@ Route::prefix("question")->group(function(){
 	Route::get("/info/{id}","Index\QuestionController@info");
 });
 
-
+//前台考试模块
+Route::prefix("exam")->group(function(){
+	//考试展示
+	Route::get("index","Index\ExamController@index");
+	//考题详情
+	Route::get("info/{id}","Index\ExamController@info"); 
+});

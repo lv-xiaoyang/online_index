@@ -18,7 +18,7 @@
             $course_data=$this->getIndexcourse(1);
     		return view("index.index",compact('type_data','course_data'));
         }
-        /**
+        /**frist
          * ajax回调课程信息
          */
         public function ajaxIndexCourse(){
@@ -48,7 +48,7 @@
     	}
         //首页讲师列表
         public function teacherlist(){
-            $data = TeacherModel::get();
+            $data = TeacherModel::paginate(3);
             return view("index.teacherlist",['data'=>$data]);
         }
          //个人中心
@@ -60,10 +60,29 @@
         //讲师模块
         //讲师个人详情页面
         public function teacher(Request $request,$id){
+
             
-            $data = teacherModel::frist();
+            $data = teacherModel::first();
+
+            //接收ajax传来的数据
+            $res = request()->post();
+            dump($res);exit;
+            $lereg_qual=$this->fileImg($lereg_qual);
+            $tea = new TeacherModel();
+            $tea = $res->update();
+
+
             return view("index.teacher");
         }
+
+        //图片上传处理
+        public function fileImg($lereg_qual){
+            if ($lereg_qual->isValid()){
+                $path = $lereg_qual->store('img');
+            }
+            return $path;
+        }
+
         //讲师课程页面
         public function coursecont(){
             return view("index.coursecont");

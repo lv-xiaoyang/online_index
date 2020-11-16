@@ -33,7 +33,7 @@
             <li><a href="/index/teacherlist" class="link1">讲师</a></li>
             <li><a href="/question/index" class="link1" target="_blank">题库</a></li>
             <li><a href="/index/askarea" class="link1" target="_blank">问答</a></li>
-            <li><a href="#" class="link1" target="_blank">考试</a></li>
+            <li><a href="/exam/index" class="link1" target="_blank">考试</a></li>
             
         </ul>
         <span class="massage">

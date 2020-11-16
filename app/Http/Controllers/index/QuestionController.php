@@ -28,8 +28,10 @@ class QuestionController extends Common
         $teacherdata = $this->getGet($teacherurl);
         $teacherdata = json_decode($teacherdata);
         $teacherdata = $teacherdata->data;
+    
     	return view("question.index",['teacherdata'=>$teacherdata,'hotdata'=>$hotdata,'data'=>$data]);
     }
+
     public function dan(){
         //获取全部单选题
         $url = "questiondan";
@@ -78,15 +80,17 @@ class QuestionController extends Common
     }
     public function info($question_id){
         //根据获取到id查询数据库 查询单条
-        $where = [
-            'question_id'=>$question_id
-        ];
-        $data = QuestionModel::where($where)->first();
+        $url = "questioninfo/".$question_id;
+        $data = $this->getGet($url);
+        $data = json_decode($data);
+
+
         $hotdata = QuestionModel::orderBy("question_time","desc")->paginate(4);
         $teacherurl = "questionteacher";
         $teacherdata = $this->getGet($teacherurl);
         $teacherdata = json_decode($teacherdata);
         $teacherdata = $teacherdata->data;
+
         return view("question.info",['hotdata'=>$hotdata,'data'=>$data,'teacherdata'=>$teacherdata]);
     }
 }
