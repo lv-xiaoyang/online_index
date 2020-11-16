@@ -7,12 +7,12 @@
 <div class="coursepic">
 	<div class="course_img"><img src="/static/images/c1.jpg" width="500"></div>
     <div class="coursetitle">
-   		<a class="state">更新中</a>
-    	<h2 class="courseh2">会计基础</h2>    
-        <p class="courstime">总课时：<span class="course_tt">30课时</span></p>
-		<p class="courstime">课程时长：<span class="course_tt">3小时20分</span></p>
-        <p class="courstime">学习人数：<span class="course_tt">25987人</span></p>
-		<p class="courstime">讲师：马老师</p>
+   		<a class="state">{{$first_data->course_status==1?'更新中':'已完结'}}</a>
+    	<h2 class="courseh2">{{$first_data->course_name}}</h2>    
+        <p class="courstime">总课时：<span class="course_tt">{{$first_data->course_num}}课时</span></p>
+		<p class="courstime">课程时长：<span class="course_tt">{{$first_data->course_video_time_h}}小时{{$first_data->course_video_time_i}}分</span></p>
+        <p class="courstime">学习人数：<span class="course_tt">{{$first_data->course_view}}人</span></p>
+		<p class="courstime" lect_id="{{$first_data->lect_id}}">讲师：{{$first_data->lect_name}}</p>
 		<p class="courstime">课程评价：<img width="71" height="14" src="/static/images/evaluate5.png">&nbsp;&nbsp;<span class="hidden-sm hidden-xs">5.0分（10人评价）</span></p>
         <!--<p><a class="state end">完结</a></p>-->      
         <span class="coursebtn"><a class="btnlink" href="/index/coursecont1">加入学习</a><a class="codol fx" href="javascript:void(0);" onClick="$('#bds').toggle();">分享课程</a><a class="codol sc" href="#">收藏课程</a></span> 

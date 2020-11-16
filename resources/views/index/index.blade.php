@@ -1,84 +1,6 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>谋刻职业教育在线测评与学习平台</title>
-
-<script src="/static/js/jquery-1.8.0.min.js"></script>
-<script type="text/javascript" src="/static/js/rev-setting-1.js"></script>
-<script type="text/javascript" src="/static/js/jquery.themepunch.revolution.min.js"></script>
-<link rel="stylesheet" href="/static/css/style.css"/>
-<link rel="stylesheet" href="/static/css/tab.css" media="screen">
-<link rel="stylesheet" type="text/css" href="/static/css/main.css" id="main-css">
-<!--课程选项卡-->
-<script type="text/javascript">
-function nTabs(thisObj,Num){
-	if(thisObj.className == "current")return;
-	var tabObj = thisObj.parentNode.id;
-	var tabList = document.getElementById(tabObj).getElementsByTagName("li");
-	for(i=0; i <tabList.length; i++)
-		{
-		if (i == Num)
-		{
-		   thisObj.className = "current"; 
-		   document.getElementById(tabObj+"_Content"+i).style.display = "block";
-		}else{
-		   tabList[i].className = "normal"; 
-		   document.getElementById(tabObj+"_Content"+i).style.display = "none";
-		}
-		} 
-}
-
-
-</script>
-
-
-</head>
-
-<body>
-
-<div class="head" id="fixed">
-	<div class="nav">
-    	<span class="navimg"><a href="/index/index"><img border="0" src="/static/images/logo.png"></a></span>
-        <ul class="nag">
-        	<li><a href="/index/courselist" class="link1">课程</a></li>
-            <li><a href="/index/articlelist" class="link1">资讯</a></li>
-            <li><a href="/index/teacherlist" class="link1">讲师</a></li>
-            <li><a href="exam_index.html" class="link1" target="_blank">题库</a></li>
-            <li><a href="askarea.html" class="link1" target="_blank">问答</a></li>
-        </ul>
-        
-        <span class="massage">
-        <!--<span class="select">
-        	<a href="#" class="sort">课程</a>
-        	<input type="text" value="关键字"/>
-            <a href="#" class="sellink"></a>
-            <span class="sortext">
-            	<p>课程</p>
-                <p>题库</p>
-                <p>讲师</p>
-            </span>
-        </span>-->
-       		
-            
-            
-            <a href="/index/mycourse"  onMouseOver="logmine()" style="width:70px" class="link2 he ico" target="_blank">sherley</a>
-            <span id="lne" style="display:none" onMouseOut="logclose()" onMouseOver="logmine()">
-                <span style="background:#fff;">
-                	<a href="/index/mycourse" style="width:70px; display:block;" class="link2 he ico" target="_blank">sherley</a>
-                </span>
-                <div class="clearh"></div>
-                <ul class="logmine" >
-                    <li><a class="link1" href="/index/mycourse">我的课程</a></li>
-                    <li><a class="link1" href="#">我的题库</a></li>
-                    <li><a class="link1" href="/index/myask">我的问答</a></li>
-                    <li><a class="link1" href="#">退出</a></li>
-                </ul>
-            </span>
-        </span>
-    </div>
-</div>
-   
+@extends('layouts.index')
+@section('title', '首页')
+@section('content')
 <div class="content">
 <div class="fullwidthbanner-container">
 		<div id="revolution-slider" style="max-height:500px !important; background:#46B0AC">
@@ -399,206 +321,73 @@ function nTabs(thisObj,Num){
     <div>
         <ul id="myTab3">
 			@foreach($type_data as $v)
-            <li class="current" value="{{$v->type_id}}" onClick="nTabs(this,0);">{{$v->type_name}}</li>
+				@if($v->type_id==1)
+				<li class="current" value="{{$v->type_id}}">{{$v->type_name}}</li>
+				@else
+				<li class="type" value="{{$v->type_id}}">{{$v->type_name}}</li>
+				@endif
 			@endforeach
         </ul>
         <div class="clearh"></div>
         <div>
-           <ul class="courseul" id="myTab3_Content0" style="display: block;">
+           <ul class="courseul course_course" id="myTab3_Content0" style="display: block;">
 		   @foreach($course_data as $v)
-            <li>
+            <a href="/courselist/detail/{{$v->course_id}}.html"><li course_id="{{$v->course_id}}">
             	<div class="courselist">
                 <img width="263" style="border-radius:3px 3px 0 0;" src="{{env('IMG_URL')}}{{$v->course_img}}" >
                 <p class="courTit">{{$v->course_name}}</p>
                 <div class="gray">
-                <span>1小时前更新</span>
-                <span class="sp1">{{$v->course_view}}人学习</span>
-                <div style="clear:both"></div>
+					<span>1小时前更新</span>
+					<span class="sp1">{{$v->course_view}}人学习</span>
+					<div style="clear:both"></div>
                 </div>
                 </div>
-           </li>
+		   </li>
+		   </a>
 			@endforeach
            <div class="clearh"></div>
           </ul>               
         </div>
-        <div>
-           <ul class="courseul" id="myTab3_Content1" style="display: none;">
-            <li>
-                <div class="courselist">
-                <img width="263" style="border-radius:3px 3px 0 0;" src="/static/images/c1.jpg" >
-                <p class="courTit">HTTP下载课程</p>
-                <div class="gray">
-                <span>1小时前更新</span>
-                <span class="sp1">1255555人学习</span>
-                <div style="clear:both"></div>
-                </div>
-                </div>
-            </li>	
-            <li>
-                <div class="courselist">
-                <img width="263" style="border-radius:3px 3px 0 0;" src="/static/images/c1.jpg" >
-                <p class="courTit">HTTP下载课程</p>
-                <div class="gray">
-                <span>1小时前更新</span>
-                <span class="sp1">1255555人学习</span>
-                <div style="clear:both"></div>
-                </div>
-                </div>
-            </li>
-            <li>
-                <div class="courselist">
-                <img width="263" style="border-radius:3px 3px 0 0;" src="/static/images/c1.jpg" >
-                <p class="courTit">HTTP下载课程</p>
-                <div class="gray">
-                <span>1小时前更新</span>
-                <span class="sp1">1255555人学习</span>
-                <div style="clear:both"></div>
-                </div>
-                </div>
-            </li>
-            <div class="clearh"></div>		
-           </ul>               
-        </div>
-        <div>
-           <ul class="courseul" id="myTab3_Content2" style="display: none;">
-            <li>
-                <div class="courselist">
-                <img width="263" style="border-radius:3px 3px 0 0;" src="/static/images/c1.jpg" >
-                <p class="courTit">HTTP下载课程</p>
-                <div class="gray">
-                <span>1小时前更新</span>
-                <span class="sp1">1255555人学习</span>
-                <div style="clear:both"></div>
-                </div>
-                </div>
-            </li>	
-            <li>
-                <div class="courselist">
-                <img width="263" style="border-radius:3px 3px 0 0;" src="/static/images/c1.jpg" >
-                <p class="courTit">HTTP下载课程</p>
-                <div class="gray">
-                <span>1小时前更新</span>
-                <span class="sp1">1255555人学习</span>
-                <div style="clear:both"></div>
-                </div>
-                </div>
-            </li>
-            <li>
-                <div class="courselist">
-                <img width="263" style="border-radius:3px 3px 0 0;" src="/static/images/c1.jpg" >
-                <p class="courTit">HTTP下载课程</p>
-                <div class="gray">
-                <span>1小时前更新</span>
-                <span class="sp1">1255555人学习</span>
-                <div style="clear:both"></div>
-                </div>
-                </div>
-            </li>
-            <div class="clearh"></div>			
-           </ul>               
-        </div>
-        <div>
-           <ul class="courseul" id="myTab3_Content3" style="display: none;">
-            <li>
-                <div class="courselist">
-                <img width="263" style="border-radius:3px 3px 0 0;" src="/static/images/c1.jpg" >
-                <p class="courTit">HTTP下载课程</p>
-                <div class="gray">
-                <span>1小时前更新</span>
-                <span class="sp1">1255555人学习</span>
-                <div style="clear:both"></div>
-                </div>
-                </div>
-            </li>	
-            <li>
-                <div class="courselist">
-                <img width="263" style="border-radius:3px 3px 0 0;" src="/static/images/c1.jpg" >
-                <p class="courTit">HTTP下载课程</p>
-                <div class="gray">
-                <span>1小时前更新</span>
-                <span class="sp1">1255555人学习</span>
-                <div style="clear:both"></div>
-                </div>
-                </div>
-            </li>
-            <div class="clearh"></div>		
-           </ul>               
-        </div>
 	</div>
+        
     
     
     <div class="line no"></div>
     
     
 </div>
-<span class="morecourse"><a href="courselist.html" class="btnlink">更多课程</a></span>
+<span class="morecourse"><a href="/courselist" class="btnlink">更多课程</a></span>
 
 </div>
-<div class="foot">
-<div class="fcontainer">
-      <div class="fwxwb"> 
-	       <div class="fwxwb_1">
-		       <span>关注微信</span><img width="95" alt="" src="/static/images/num.png">
-		   </div>
-           <div>
-               <span>关注微博</span><img width="95" alt="" src="/static/images/wb.png">
-		   </div>	              
-      </div>
-      <div class="fmenu">
-	     <p><a href="#">关于我们</a> | <a href="#">联系我们</a> | <a href="#">优秀讲师</a> | <a href="#">帮助中心</a> | <a href="#">意见反馈</a> | <a href="#">加入我们</a></p>
-      </div>
-      <div class="copyright">      
-        <div><a href="/">谋刻网</a>所有&nbsp;晋ICP备12006957号-9</div>
-      </div>
-    </div>
-</div>
-</div>
 
-<!--右侧浮动-->
-<div class="rmbar">
-	<span class="barico qq" style="position:relative">
-	<div  class="showqq">
-	   <p>官方客服QQ:<br>335049335</p>
-	</div>
-	</span>
-	<span class="barico em" style="position:relative">
-	  <img src="/static/images/num.png" width="75" class="showem">
-	</span>
-	<span class="barico wb" style="position:relative">
-	  <img src="/static/images/wb.png" width="75" class="showwb">
-	</span>	
-	<span class="barico top" id="top">置顶</span>	
-</div>
 
-</body>
-</html>
+
 <script>
-function logmine(){
-	document.getElementById("lne").style.display="block";
-}
-function logclose(){
-	document.getElementById("lne").style.display="none";	
-}
-
- /*右侧客服飘窗*/
-	$(".label_pa li").click(function() {
-		$(this).siblings("li").find("span").css("background-color", "#fff").css("color", "#666");
-		$(this).find("span").css("background", "#fb5e55").css("color", "#fff");
-	});
-	$(".em").hover(function() {
-		$(".showem").toggle();
-	});
-	$(".qq").hover(function() {
-		$(".showqq").toggle();
-	});
-	$(".wb").hover(function() {
-		$(".showwb").toggle();
-	});
-	$("#top").click(function() {
-		if (scroll == "off") return;
-		$("html,body").animate({
-			scrollTop: 0
-		},
-		600);
-	});
+	$(document).on('click','.type',function(){
+		var _this=$(this);
+		//清除其他li的样式
+		_this.siblings().prop('class','type');
+		_this.prop('class','current');
+		//获取分类id
+		var type_id=_this.val();
+		//将分类id传到控制器，获取新的课程数据
+		$.ajax({
+			url:'ajaxIndexCourse',
+			type:'get',
+			data:{type_id:type_id},
+			success:function(res){
+				if(res!=null){
+					var jj="";
+					$.each(JSON.parse(res),function(idx,obj){
+						jj +="<a href='/detail/"+obj.course_id+".html'><li course_id='"+obj.course_id+"'><div class='courselist'><img width='263' style='border-radius:3px 3px 0 0;' src='"+obj.course_img+"' ><p class='courTit'>"+obj.course_name+"</p><div class='gray'><span>1小时前更新</span><span class='sp1'>"+obj.course_view+"人学习</span><div style='clear:both'></div></div></div></li></a>";
+					});
+					$('.course_course').html(jj);
+				}else{
+					alert('请稍后再试');
+				}
+				
+			}
+		})
+	})
 </script>
+@endsection('content')

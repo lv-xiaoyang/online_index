@@ -11,6 +11,11 @@
 <link rel="stylesheet" href="/static/css/tab.css" media="screen">
 <script src="/static/js/jquery.tabs.js"></script>
 <script src="/static/js/mine.js"></script>
+
+ <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/article.css">
+ <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->

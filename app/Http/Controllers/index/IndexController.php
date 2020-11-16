@@ -19,6 +19,19 @@
     		return view("index.index",compact('type_data','course_data'));
         }
         /**
+         * ajax回调课程信息
+         */
+        public function ajaxIndexCourse(){
+            //获取课程id
+            $type_id=request()->type_id;
+            $data=$this->getIndexcourse($type_id);
+            foreach($data as $v){
+                $v->course_img=env('IMG_URL').$v->course_img;
+            }
+            $data=array_map('get_object_vars',$data);
+            return json_encode($data);
+        }
+        /**
          * 获取首页课程信息
          */
         public function getIndexcourse($course_type_id){
@@ -28,10 +41,7 @@
             $course_data=json_decode($course_data);
             return $course_data;
         }
-    	//首页课程列表
-    	public function courselist(){
-    		return view("index.courselist");
-    	}
+    	
     	//首页咨询列表
     	public function articlelist(){
     		return view("index.articlelist");
