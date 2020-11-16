@@ -54,7 +54,7 @@
                             <p class="goon"><a href="/index/video"><span>继续学习</span></a></p>
                             </div>
                         </li>
-<li>
+                    <li>
                             <div class="courseli">
                             <a href="/index/video" target="_blank"><img width="230" src="/static/images/c8.jpg"></a>
                             <p class="memb_courname"><a href="/index/video" class="blacklink">会计基础</a></p>
@@ -64,7 +64,7 @@
                             <p class="goon"><a href="/index/video"><span>继续学习</span></a></p>
                             </div>
                         </li>
-<li>
+                    <li>
                             <div class="courseli">
                             <a href="/index/video" target="_blank"><img width="230" src="/static/images/c8.jpg"></a>
                             <p class="memb_courname"><a href="/index/video" class="blacklink">会计基础</a></p>

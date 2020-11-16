@@ -3,7 +3,7 @@
     use App\Http\Controllers\Controller;
     use App\Http\Controllers\index\Common;
     use Illuminate\Http\Request;
-    
+    use App\Model\TeacherModel;
     use GuzzleHttp\Client;
     use Illuminate\Support\Facades\Redis;
     class IndexController extends Common
@@ -48,7 +48,8 @@
     	}
         //首页讲师列表
         public function teacherlist(){
-            return view("index.teacherlist");
+            $data = TeacherModel::get();
+            return view("index.teacherlist",['data'=>$data]);
         }
          //个人中心
         public function mycourse(){
@@ -58,7 +59,9 @@
 
         //讲师模块
         //讲师个人详情页面
-        public function teacher(){
+        public function teacher(Request $request,$id){
+            
+            $data = teacherModel::frist();
             return view("index.teacher");
         }
         //讲师课程页面
