@@ -180,8 +180,8 @@
     @foreach($teacherdata as $k=>$v)
     <!-- 跳转讲师详情页面 - - - - - - - -  - - - - - - - - - - - - - - - -  -->
     <div class="teapic">
-        <a href="#"  target="_blank"><img src="{{env('IMG_URL')}}{{$v->lereg_qual}}" height="60" ></a>
-        <h3 class="courh3"><a href="#" class="ask_link" target="_blank">{{$v->lereg_name}}</a></h3>
+        <a href="{{url('/index/teacher/'.$v->lereg_id)}}"  target="_blank"><img src="{{env('IMG_URL')}}{{$v->lereg_qual}}" height="60" ></a>
+        <h3 class="courh3"><a href="{{url('/index/teacher/'.$v->lereg_id)}}" class="ask_link" target="_blank">{{$v->lereg_name}}</a></h3>
     </div>
     @endforeach
     

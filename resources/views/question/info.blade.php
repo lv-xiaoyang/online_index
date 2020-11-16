@@ -27,10 +27,11 @@
     
         <div class="articlelist">
                 <h3><a class="artlink" href="#">题目： {{$data->question_name}}</a></h3>
-                <p>
-                   答案： <textarea name="" id="" cols="40" rows="5"></textarea>
-                </p>
-                <p id="question_daan"><a href="">查看答案</a></p>
+                <p>所属课程 :{{$data->course_name}}</p>
+                <p>所属章:{{$data->chapter_name}}</p>
+                <p>所属节:{{$data->section_name}}</p>
+                <p>所属课时:{{$data->class_name}}</p>
+                <p></p>
                 <span></span>
                 <p class="artilabel">
                 <b class="labtime"> {{date('Y-m-d H:i:s',$data->question_time)}}</b>
@@ -87,8 +88,8 @@
     @foreach($teacherdata as $k=>$v)
     <!-- 跳转讲师详情页面 - - - - - - - -  - - - - - - - - - - - - - - - -  -->
     <div class="teapic">
-        <a href="#"  target="_blank"><img src="{{env('IMG_URL')}}{{$v->lereg_qual}}" height="60" ></a>
-        <h3 class="courh3"><a href="#" class="ask_link" target="_blank">{{$v->lereg_name}}</a></h3>
+        <a href="{{url('/index/teacher/'.$v->lereg_id)}}"  target="_blank"><img src="{{env('IMG_URL')}}{{$v->lereg_qual}}" height="60" ></a>
+        <h3 class="courh3"><a href="{{url('/index/teacher/'.$v->lereg_id)}}" class="ask_link" target="_blank">{{$v->lereg_name}}</a></h3>
     </div>
     @endforeach
     
@@ -109,9 +110,9 @@
 
 <div class="clearh"></div>
 <script>
-    $("#question_daan").click(function(){
-        alert(123)
-    })
+    // $("#question_daan").click(function(){
+        
+    // })
 </script>
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

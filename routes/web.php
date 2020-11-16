@@ -89,4 +89,10 @@ Route::prefix("question")->group(function(){
 	Route::get("/info/{id}","Index\QuestionController@info");
 });
 
-
+//前台考试模块
+Route::prefix("exam")->group(function(){
+	//考试展示
+	Route::get("index","Index\ExamController@index");
+	//考题详情
+	Route::get("info/{id}","Index\ExamController@info"); 
+});

@@ -18,7 +18,7 @@
             $course_data=$this->getIndexcourse(1);
     		return view("index.index",compact('type_data','course_data'));
         }
-        /**
+        /**frist
          * ajax回调课程信息
          */
         public function ajaxIndexCourse(){
@@ -61,7 +61,7 @@
         //讲师个人详情页面
         public function teacher(Request $request,$id){
             
-            $data = teacherModel::frist();
+            $data = teacherModel::first();
             return view("index.teacher");
         }
         //讲师课程页面
