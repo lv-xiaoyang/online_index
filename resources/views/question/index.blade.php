@@ -18,7 +18,7 @@
         <a class="fombtn" href="/question/jian">简答题</a>
     </span>
     
-</div>
+</div>  
 <div class="clearh"></div>
 <div class="coursetext">
     @php
@@ -31,7 +31,7 @@
         
         @foreach($data as $k=>$v)
             <div class="articlelist">
-                <h3><a class="artlink" href="/question/info">题目： {{$v->question_name}}</a></h3>
+                <h3><a class="artlink" href="{{url('/question/info/'.$v->question_id)}}">题目： {{$v->question_name}}</a></h3>
                 <p>
                    答案： <textarea name="" id="" cols="40" rows="5"></textarea>
                 </p>
@@ -48,7 +48,7 @@
         
         @foreach($data as $k=>$v)
             <div class="articlelist">
-                <h3><a class="artlink" href="/question/daninfo">{{$v->question_name}}</a></h3>
+                <h3><a class="artlink" href="{{url('/question/info/'.$v->question_id)}}">{{$v->question_name}}</a></h3>
                 <p></p>
                 <p class="artilabel">
                 <!-- <b class="labtime"> -->
@@ -66,7 +66,7 @@
 
         @foreach($data as $k=>$v)
             <div class="articlelist">
-                <h3><a class="artlink" href="/question/duoinfo">{{$v->question_name}}</a></h3>
+                <h3><a class="artlink" href="{{url('/question/info/'.$v->question_id)}}">{{$v->question_name}}</a></h3>
                 <p></p>
                 <p class="artilabel">
                 <!-- <b class="labtime"> -->
@@ -75,6 +75,7 @@
                     C.{{$v->cor_c}}<input type="checkbox">
                     D.{{$v->cor_d}}<input type="checkbox">
                 <!-- </b> -->
+                <b class="labtime"> {{date('Y-m-d H:i:s',$v->question_time)}}</b>
                 </p>
                 <div class="clearh"></div>
             </div>
@@ -84,7 +85,7 @@
         @foreach($data as $k=>$v)
             @if($v->question_type_id==1)
                 <div class="articlelist">
-                    <h3><a class="artlink" href="/question/daninfo">{{$v->question_name}}</a></h3>
+                    <h3><a class="artlink" href="{{url('/question/info/'.$v->question_id)}}">{{$v->question_name}}</a></h3>
                     <p></p>
                     <p class="artilabel">
                     <!-- <b class="labtime"> -->
@@ -93,12 +94,13 @@
                         C.{{$v->cor_c}}<input type="radio" id="question_cor_3" value="3"  name="cor_dan">
                         D.{{$v->cor_d}}<input type="radio" id="question_cor_4" value="4"  name="cor_dan">
                     <!-- </b> -->
+                    <b class="labtime"> {{date('Y-m-d H:i:s',$v->question_time)}}</b>
                     </p>
                     <div class="clearh"></div>
                 </div>
             @elseif($v->question_type_id==2)
                 <div class="articlelist">
-                    <h3><a class="artlink" href="/question/duoinfo">{{$v->question_name}}</a></h3>
+                    <h3><a class="artlink" href="{{url('/question/info/'.$v->question_id)}}">{{$v->question_name}}</a></h3>
                     <p></p>
                     <p class="artilabel">
                     <!-- <b class="labtime"> -->
@@ -107,12 +109,14 @@
                         C.{{$v->cor_c}}<input type="checkbox">
                         D.{{$v->cor_d}}<input type="checkbox">
                     <!-- </b> -->
+                        <b class="labtime"> {{date('Y-m-d H:i:s',$v->question_time)}}</b>
                     </p>
-                    <div class="clearh"></div>
+                    <div
+                     class="clearh"></div>
                 </div>
             @elseif($v->question_type_id==3)
                 <div class="articlelist">
-                    <h3><a class="artlink" href="/question/info">题目： {{$v->question_name}}</a></h3>
+                    <h3><a class="artlink" href="{{url('/question/info/'.$v->question_id)}}">题目： {{$v->question_name}}</a></h3>
                     <p>
                        答案： <textarea name="" id="" cols="40" rows="5"></textarea>
                     </p>
@@ -133,9 +137,6 @@
     <span class="pagejump">
         <!-- <p class="userpager-list">
             
-    
-
-
            <a href="#" class="page-number">首页</a>
            <a href="#" class="page-number">上一页</a>
            <a href="#" class="page-number">1</a>
@@ -157,7 +158,13 @@
     @foreach($hotdata as $k=>$v)
     <div class="gonggao">
         <ul class="hotask">
-            <a href="">{{$v->question_name}}</a>
+            @if($v->question_type_id==1)
+                <a href="{{url('/question/info/'.$v->question_id)}}">{{$v->question_name}}</a>
+            @elseif($v->question_type_id==2)
+                <a href="{{url('/question/info/'.$v->question_id)}}">{{$v->question_name}}</a>
+            @elseif($v->question_type_id==3)
+                <a href="{{url('/question/info/'.$v->question_id)}}">{{$v->question_name}}</a>
+            @endif
         </ul>
     </div>
     @endforeach
@@ -171,6 +178,7 @@
     <div class="teacher">
     
     @foreach($teacherdata as $k=>$v)
+    <!-- 跳转讲师详情页面 - - - - - - - -  - - - - - - - - - - - - - - - -  -->
     <div class="teapic">
         <a href="#"  target="_blank"><img src="{{env('IMG_URL')}}{{$v->lereg_qual}}" height="60" ></a>
         <h3 class="courh3"><a href="#" class="ask_link" target="_blank">{{$v->lereg_name}}</a></h3>
