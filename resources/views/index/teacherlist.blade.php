@@ -2,50 +2,76 @@
 @section("title","课程首页")
 @section("content")
 <!-- InstanceBeginEditable name="EditRegion1" -->
-<div class="coursecont" style="background: none repeat scroll 0 0 #fff;border-radius: 3px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);" >
-    <h3 class="righttit" style="padding-left:50px;">优秀讲师</h3>
-	<div class="coursepic tecti">
-		<div class="teaimg">
-		<a href="/index/teacher" target="_blank"><img src="/static/images/teacher.jpg" width="150"></a>
+	
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<form action="" method="post" id="banner-upload" enctype="multipart/form-data">
+	<div class="coursecont" style="background: none repeat scroll 0 0 #fff;border-radius: 3px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);" >
+		<h3 class="righttit" style="padding-left:50px;">优秀讲师</h3>
+		@foreach($data as $k=>$v)
+		<div class="coursepic tecti">
+			<div class="teaimg" lereg_id="{{$v->lereg_id}}">
+				<a target="_blank" name="teacher">
+					<img  src="/{{$v->lereg_qual}}" width="150">
+				</a>
+			</div>
+			<div class="teachtext">
+				<h3 lereg_name="{{$v->lereg_name}}">
+					<a  name="teacher2" target="_blank" class="teatt">{{$v->lereg_name}}</a>&nbsp;&nbsp;
+					<strong>{{$v->lereg_magor}}</strong></h3>
+				<h4>个人简介</h4>
+				<p>{{$v->lereg_res}}</p>
+				<h4>授课风格</h4>
+				<p>{{$v->lereg_style}}</p>
+			</div>
+			<div class="clearh"></div>
 		</div>
-		<div class="teachtext">
-			<h3><a href="/index/teacher" target="_blank" class="teatt">马嫱</a>&nbsp;&nbsp;<strong>会计基础、会计电算化讲师</strong></h3>
-			<h4>个人简介</h4>
-			<p>资深财会考试与实务操作讲师；拥有五年财税实务及实操经验。 曾在大型连锁超市担任总会计三年，集团公司两年的会计工作经历。</p>
-			<h4>授课风格</h4>
-			<p>马老师讲授的课程紧扣大纲，重点突出；举例风趣幽默，讲解通俗易懂;传授的学习方法简洁有效；同时，注意与学员进行各种交流，及时解答学员疑惑，反馈学员建议，深受好评。</p>
-		</div>
-		<div class="clearh"></div>
+		@endforeach
+
 	</div>
-	<div class="coursepic tecti">
-		<div class="teaimg">
-		<a href="/index/teacher" target="_blank"><img src="/static/images/teacher.jpg" width="150"></a>
-		</div>
-		<div class="teachtext">
-			<h3><a href="/index/teacher" target="_blank" class="teatt">马嫱</a>&nbsp;&nbsp;<strong>会计基础、会计电算化讲师</strong></h3>
-			<h4>个人简介</h4>
-			<p>资深财会考试与实务操作讲师；拥有五年财税实务及实操经验。 曾在大型连锁超市担任总会计三年，集团公司两年的会计工作经历。</p>
-			<h4>授课风格</h4>
-			<p>马老师讲授的课程紧扣大纲，重点突出；举例风趣幽默，讲解通俗易懂;传授的学习方法简洁有效；同时，注意与学员进行各种交流，及时解答学员疑惑，反馈学员建议，深受好评。</p>
-		</div>
-		<div class="clearh"></div>
-	</div>
-	<div class="coursepic tecti">
-		<div class="teaimg">
-		<a href="/index/teacher" target="_blank"><img src="/static/images/teacher.jpg" width="150"></a>
-		</div>
-		<div class="teachtext">
-			<h3><a href="/index/teacher" target="_blank" class="teatt">马嫱</a>&nbsp;&nbsp;<strong>会计基础、会计电算化讲师</strong></h3>
-			<h4>个人简介</h4>
-			<p>资深财会考试与实务操作讲师；拥有五年财税实务及实操经验。 曾在大型连锁超市担任总会计三年，集团公司两年的会计工作经历。</p>
-			<h4>授课风格</h4>
-			<p>马老师讲授的课程紧扣大纲，重点突出；举例风趣幽默，讲解通俗易懂;传授的学习方法简洁有效；同时，注意与学员进行各种交流，及时解答学员疑惑，反馈学员建议，深受好评。</p>
-		</div>
-		<div class="clearh"></div>
-	</div>
-</div>
-<!-- InstanceEndEditable -->
+</form>
+<!-- InstanceEndEditable -->	
+
+	<script>
+		$(document).ready(function(){
+			//根据标签选择器 写方法 
+			//	$("a[name='teacher']").click(function(){
+			//根据图片a标签获取他的父级标签的id
+			$("a[name='teacher']").click(function(){
+				var lereg_id = $(this).parent().attr("lereg_id");;
+				// console.log(lereg_id);	    
+				var formData = new FormData(document.getElementById('banner-upload'));
+				$.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
+				$.ajax({
+					url:'/index/teacher/'+lereg_id,
+					type:'post',
+					data:formData,
+					contentType: false,
+					processData: false,
+					success:function(res){
+						alert(res);
+						// if(res.code==0001){
+						// 		location.href="/index/teacher";
+						// }else{
+						// 	alert(res.msg);
+						// }
+					}
+				});
+
+		
+			});
+
+			$("a[name='teacher2']").click(function(){
+				var lereg_name = $(this).parent().attr("lereg_name");
+				console.log(lereg_name);
+			})
 
 
-<div class="clearh"></div>
+
+
+
+		})
+	
+	</script>
+
+
 @endsection

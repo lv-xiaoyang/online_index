@@ -1,5 +1,5 @@
 @extends("layouts.head")
-@section("title","咨询首页")
+@section("title","资讯首页")
 @section("content")
 
 

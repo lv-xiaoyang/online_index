@@ -44,7 +44,7 @@ function nTabs(thisObj,Num){
         	<li><a href="courselist.html" class="link1">课程</a></li>
             <li><a href="articlelist.html" class="link1">资讯</a></li>
             <li><a href="teacher.html" class="link1">讲师</a></li>
-            <li><a href="exam_index.html" class="link1" target="_blank">题库</a></li>
+            <li><a href="/question/index" class="link1" target="_blank">题库</a></li>
             <li><a href="askarea.html" class="link1" target="_blank">问答</a></li>
         </ul>
         
@@ -62,10 +62,10 @@ function nTabs(thisObj,Num){
        		
             
             
-            <a href="mycourse.html"  onMouseOver="logmine()" style="width:70px" class="link2 he ico" target="_blank">sherley</a>
+            <a href="/index/mycourse"  onMouseOver="logmine()" style="width:70px" class="link2 he ico" target="_blank">sherley</a>
             <span id="lne" style="display:none" onMouseOut="logclose()" onMouseOver="logmine()">
                 <span style="background:#fff;">
-                	<a href="mycourse.html" style="width:70px; display:block;" class="link2 he ico" target="_blank">sherley</a>
+                	<a href="/index/mycourse" style="width:70px; display:block;" class="link2 he ico" target="_blank">sherley</a>
                 </span>
                 <div class="clearh"></div>
                 <ul class="logmine" >
