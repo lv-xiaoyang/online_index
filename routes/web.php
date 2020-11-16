@@ -82,7 +82,8 @@ Route::prefix("question")->group(function(){
 	Route::get("/duo","Index\QuestionController@duo")->name('duo');
 	// 简答题展示
 	Route::get("/jian","Index\QuestionController@jian")->name("jian");
-	
+	//题目详情页面
+	Route::get("/info/{id}","Index\QuestionController@info");
 });
 
 
