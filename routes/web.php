@@ -24,8 +24,9 @@ Route::prefix('/courselist')->group(function(){
     
 });
 Route::prefix('/detail')->group(function(){
-    Route::get('/{slug}.html','index\DetailController@getdetail');//课程详情页
-    Route::get('/getencrypt','index\DetailController@getencrypt');//伪静态加密
+	Route::get('/{slug}.html','index\DetailController@getdetail');//课程介绍页
+	Route::any('/course/{slug}.html','index\DetailController@getdetail');//课程详情页
+    // Route::get('/getencrypt','index\DetailController@getencrypt');//伪静态加密
 });
 
 
@@ -50,8 +51,7 @@ Route::post('/index/logins','index\LoginController@logins');
 Route::any('/index/teacher','index\IndexController@teacher');
 //讲师课程页面
 Route::any('/index/coursecont','index\IndexController@coursecont');
-//讲师课程章节页面
-Route::any('/index/coursecont1','index\IndexController@coursecont1');
+
 //讲师课程视频页面
 Route::any('/index/video','index\IndexController@video');
 
