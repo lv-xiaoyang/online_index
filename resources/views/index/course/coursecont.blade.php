@@ -9,12 +9,12 @@
    		<a class="state">{{$first_data->course_status==1?'更新中':'已完结'}}</a>
     	<h2 class="courseh2">{{$first_data->course_name}}</h2>    
         <p class="courstime">总课时：<span class="course_tt">{{$first_data->course_num}}课时</span></p>
-		<p class="courstime">课程时长：<span class="course_tt">{{$first_data->course_video_time_h}}小时{{$first_data->course_video_time_i}}分</span></p>
+		<p class="courstime">课程时长：<span class="course_tt">{{$first_data->course_video_time_h}}小时</span></p>
         <p class="courstime">学习人数：<span class="course_tt">{{$first_data->course_view}}人</span></p>
 		<p class="courstime" lect_id="{{$first_data->lect_id}}">讲师：{{$lect_name}}老师</p>
 		<p class="courstime">课程评价：<img width="71" height="14" src="/status/images/evaluate5.png">&nbsp;&nbsp;<span class="hidden-sm hidden-xs">5.0分（10人评价）</span></p>
         <!--<p><a class="state end">完结</a></p>-->      
-        <span class="coursebtn"><a class="btnlink" href="/index/coursecont1">加入学习</a><a class="codol fx" href="javascript:void(0);" onClick="$('#bds').toggle();">分享课程</a><a class="codol sc" href="#">收藏课程</a></span> 
+        <span class="coursebtn"><a class="btnlink" href="/detail/course/{{$first_data->course_id}}.html">加入学习</a><a class="codol fx" href="javascript:void(0);" onClick="$('#bds').toggle();">分享课程</a><a class="codol sc" href="#">收藏课程</a></span> 
 		<div style="clear:both;"></div>
 		<div id="bds">
             <div class="bdsharebuttonbox">
@@ -56,7 +56,7 @@
     <h3 class="righttit">授课讲师</h3>
     <div class="teacher">
     <div class="teapic ppi">
-    <a href="/index/teacher" target="_blank"><img src="{{$first_data->lect_img}}" width="80" class="teapicy" title="{{$first_data->lect_name}}"></a>
+    <a href="/index/teacher" target="_blank"><img src="/{{$first_data->lect_img}}" width="80" class="teapicy" title="{{$first_data->lect_name}}"></a>
     <h3 class="tname"><a href="/index/teacher" class="peptitle" target="_blank">{{$first_data->lect_name}}</a><p style="font-size:14px;color:#666">{{$first_data->course_name}}讲师</p></h3>
     </div>
     <div class="clearh"></div>
@@ -86,7 +86,7 @@
         <div class="teacher">
         @foreach($correlation_data as $v)
             <div class="teapic">
-                <a href="#"  target="_blank"><img src="{{env('APP_URL')}}{{$v['course_img']}}" height="60" title="{{$v['course_name']}}"></a>
+                <a href="/detail/{{$v['course_id']}}.html"  target="_blank"><img src="{{env('APP_URL')}}{{$v['course_img']}}" height="60" title="{{$v['course_name']}}"></a>
                 <h3 class="courh3"><a href="/detail/{{$v['course_id']}}.html" class="peptitle" target="_blank">{{$v['course_name']}}</a></h3>
             </div>
             <div class="clearh"></div>

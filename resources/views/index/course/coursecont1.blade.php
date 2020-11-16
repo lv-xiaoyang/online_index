@@ -1,5 +1,5 @@
 
-@extends("layouts.tail")
+@extends("layouts.coursecont")
 @section("title","课程首页")
 @section("content")
 <!-- InstanceBeginEditable name="EditRegion1" -->
@@ -8,7 +8,7 @@
 <div class="coursecont">
 <div class="coursepic1">
    <div class="coursetitle1">
-    	<h2 class="courseh21">会计财经法规与会计职业道德</h2>
+    	<h2 class="courseh21">{{$first_data->course_name}}</h2>
 		<div  style="margin-top:-40px;margin-right:25px;float:right;">
 		<div class="bdsharebuttonbox">
 			<a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone"></a>
@@ -20,17 +20,17 @@
 			<a class="bds_count" data-cmd="count"></a>
 		</div>
         <script>
-		window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"24"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api//static/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+		window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"24"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/status/api//status/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
 		</script>
 		</div>
    </div>
    <div class="course_img1">
-	   <img src="/static/images/c1.jpg" height="140">	   
+	   <img src="{{env('APP_URL')}}{{$first_data->course_img}}" height="140">	   
    </div>
    <div class="course_xq">
-       <span class="courstime1"><p>课时<br/><span class="coursxq_num">100课时</span></p></span>
-	   <span class="courstime1"><p>学习人数<br/><span class="coursxq_num">25987人</span></p></span>
-	   <span class="courstime1"><p style="border:none;">课程时长<br/><span class="coursxq_num">3小时20分</span></p></span>
+       <span class="courstime1"><p>课时<br/><span class="coursxq_num">{{$first_data->course_num}}课时</span></p></span>
+	   <span class="courstime1"><p>学习人数<br/><span class="coursxq_num">{{$first_data->course_view}}人</span></p></span>
+	   <span class="courstime1"><p style="border:none;">课程时长<br/><span class="coursxq_num">{{$first_data->course_video_time_h}}</span></p></span>
    </div>
    <div class="course_xq2">
       <a class="course_learn" href="/index/video">开始学习</a>
@@ -42,37 +42,29 @@
 <div class="coursetext">
 	<div class="box demo2" style="position:relative">
 			<ul class="tab_menu">
-                <li class="current course1"><a href="/index/coursecont1">章节</a></li>
-                <li class="current course1"><a href="/index/comment">评价</a></li>
-                <li class="current course1"><a href="#">问答</a></li>
-                <li class="current course1"><a href="#">资料区</a></li>
+                <li class="current course1">章节</li>
+                <li class="course1">评价</li>
+                <li class="course1">问答</li>
+                <li class="course1">资料区</li>
 			</ul>
 			<!--<a class="fombtn" style=" position:absolute; z-index:3; top:-10px; width:80px; text-align:center;right:0px;" href="#">下载资料包</a>-->
 			<div class="tab_box">
 				<div>
 					<dl class="mulu noo">
+                    @foreach($first_data->chapter as $k=>$v)
 					<div>
-                        <dt class="mulu_title"><span class="mulu_img"></span>第一章&nbsp;&nbsp;总论
+                        <dt class="mulu_title"><span class="mulu_img"></span>第{{$k+1}}章&nbsp;&nbsp;{{$v['chapter_name']}}
 						<span class="mulu_zd">+</span></dt>
+                        @foreach($v['section'] as $kk=>$vv)
 						<div class="mulu_con">
-							<dd class="smalltitle"><strong>第一节&nbsp;&nbsp;会计的概念与目标</strong></dd>
-							<a href="/index/video"><dd><strong class="cataloglink">课时1：会计的概念与目标1</strong><i class="fini nn"></i></dd></a>
-							<a href="/index/video"><dd><strong class="cataloglink">课时2：会计的概念与目标2</strong><i class="fini fn"></i></dd></a>
-							<dd class="/index/video"><strong>第二节&nbsp;&nbsp;会计的职能与方法</strong></dd>
-							<a href="/index/video"><dd><strong class="cataloglink">课时1：会计的职能与方法1</strong><i class="fini nn"></i></dd></a>
-							<a href="/index/video"><dd><strong class="cataloglink">课时2：会计的职能与方法2</strong><i class="fini fn"></i></dd></a>
-							<a href="/index/video"><dd><strong class="cataloglink">课时1：会计的职能与方法3</strong><i class="fini ff"></i></dd></a>
+							<dd class="smalltitle"><strong>第{{$vv['section_id']}}节&nbsp;&nbsp;</strong></dd>
+                            @foreach($vv['class'] as $kkk=>$vvv)
+							<a href="/index/video?class_id={{$vvv['class_id']}}"><dd><strong class="cataloglink">课时{{$vvv['level']}}：{{$vvv['class_name']}}</strong><i class="fini nn"></i></dd></a>
+							@endforeach
 						</div>
+                        @endforeach
 					</div>
-					<div>
-                        <dt class="mulu_title"><span class="mulu_img"></span>第二章&nbsp;&nbsp;会计要素与会计等式
-						<span class="mulu_zd">+</span></dt>
-						<div class="mulu_con">
-							<dd class="smalltitle"><strong>第一节&nbsp;&nbsp;会计要素</strong></dd>
-							<a href="/index/video"><dd><strong class="cataloglink">课时1：会计要素与会计等式1</strong><i class="fini nn"></i></dd></a>
-							<a href="/index/video"><dd><strong class="cataloglink">课时2：会计要素与会计等式2</strong><i class="fini nn"></i></dd></a>
-						</div>
-					</div>
+					@endforeach
                    </dl>                   
 				</div>
 				<div class="hide">
@@ -96,14 +88,14 @@
                     </div>
 					<ul class="evalucourse">
                     	<li>
-                        	<span class="pephead"><img src="/static/images/0-0.JPG" width="50" title="候候">
+                        	<span class="pephead"><img src="/status/images/0-0.JPG" width="50" title="候候">
                             <p class="pepname">候候候候</p>                           
                             </span>
                             <span class="pepcont"><p>2013年国家公务员考试真题2013年国家公务员考试真题2013年国家公务员考试真题2013试真3年国家公。</p>
                             <p class="peptime pswer">2015-01-02</p></span>
                         </li>
                         <li>
-                        	<span class="pephead"><img src="/static/images/0-0.JPG" width="50" title="候候">
+                        	<span class="pephead"><img src="/status/images/0-0.JPG" width="50" title="候候">
                             <p class="pepname">候候15kpiii</p>                           
                             </span>
                             <span class="pepcont"><p>2013年国家公务员考试真题2013年国家公务员考试真题2013年国家公务员考试真题2013年国家公务员考试真题2013年国家公务员考试真题2013年国家公务员考试真题2013年国家公务员考试真题2013年国家公。</p>
@@ -123,7 +115,7 @@
                     </div>
 					<ul class="evalucourse">
                     	<li>
-                        	<span class="pephead"><img src="/static/images/0-0.JPG" width="50" title="候候">
+                        	<span class="pephead"><img src="/status/images/0-0.JPG" width="50" title="候候">
 							<p class="pepname">候候</p>                             
                             </span>
                             <span class="pepcont">
@@ -132,7 +124,7 @@
                             </span>
                         </li>
                         <li>
-                        	<span class="pephead"><img src="/static/images/0-0.JPG" width="50" title="候候">
+                        	<span class="pephead"><img src="/status/images/0-0.JPG" width="50" title="候候">
 							<p class="pepname">候候</p>                             
                             </span>
                             <span class="pepcont">
@@ -175,11 +167,11 @@
     <h3 class="righttit">授课讲师</h3>
     <div class="teacher">
     <div class="teapic ppi">
-    <a href="/index/teacher" target="_blank"><img src="/static/images/teacher.png" width="80" class="teapicy" title="张民智"></a>
-     <h3 class="tname"><a href="/index/teacher" class="peptitle" target="_blank">张民智</a><p style="font-size:14px;color:#666">会计讲师</p></h3>
+    <a href="/index/teacher" target="_blank"><img src="/{{$first_data->lect_img}}" width="80" class="teapicy" title="{{$first_data->lect_name}}"></a>
+     <h3 class="tname"><a href="/index/teacher" class="peptitle" target="_blank">{{$first_data->lect_name}}</a><p style="font-size:14px;color:#666">{{$first_data->course_name}}讲师</p></h3>
     </div>
     <div class="clearh"></div>
-    <p>十年以上Linux从业经验， 培训经验超过八年。在各 个知名培训机构做过金牌 讲师、学科负责人，培训 学员过万人。曾获红帽认 证讲师，微软认证讲师等 资质认证。教学以逻辑性 强、教学细致、知识点准 确著称。</p>
+    <p>{{$first_data->lect_resume}}</p>
     </div>
     </div>
 </div>
@@ -189,10 +181,10 @@
     <h3 class="righttit" onclick="reglog_open();">最新学员</h3>
         <div class="teacher zxxy">
         <ul class="stuul">
-            <li><img src="/static/images/0-0.JPG" width="60" title="张三李四"><p class="stuname">张三李四</p></li>
-            <li><img src="/static/images/0-0.JPG" width="60" title="张三李四"><p class="stuname">张三李四</p></li>
-            <li><img src="/static/images/0-0.JPG" width="60" title="张三李四"><p class="stuname">张三李四</p></li>
-            <li><img src="/static/images/0-0.JPG" width="60" title="张三李四"><p class="stuname">张三李四</p></li>
+            <li><img src="/status/images/0-0.JPG" width="60" title="张三李四"><p class="stuname">张三李四</p></li>
+            <li><img src="/status/images/0-0.JPG" width="60" title="张三李四"><p class="stuname">张三李四</p></li>
+            <li><img src="/status/images/0-0.JPG" width="60" title="张三李四"><p class="stuname">张三李四</p></li>
+            <li><img src="/status/images/0-0.JPG" width="60" title="张三李四"><p class="stuname">张三李四</p></li>
         </ul>
         <div class="clearh"></div>
         </div>
@@ -203,21 +195,13 @@
     <div class="cr1">
     <h3 class="righttit">相关课程</h3>
     <div class="teacher">
+    @foreach($correlation_data as $val)
     <div class="teapic">
-        <a href="#"  target="_blank"><img src="/static/images/c1.jpg" height="60" title="财经法规与财经职业道德"></a>
-        <h3 class="courh3"><a href="#" class="peptitle" target="_blank">财经法规与财经职业道德</a></h3>
+        <a href="/detail/{{$v['course_id']}}.html"  target="_blank"><img src="{{env('APP_URL')}}{{$val['course_img']}}" height="60" title="{{$val['course_name']}}"></a>
+        <h3 class="courh3"><a href="/detail/{{$v['course_id']}}.html" class="peptitle" target="_blank">{{$val['course_name']}}</a></h3>
     </div>
     <div class="clearh"></div>
-    <div class="teapic">
-        <a href="#"  target="_blank"><img src="/static/images/c2.jpg" height="60" title="财经法规与财经职业道德"></a>
-        <h3 class="courh3"><a href="#" class="peptitle" target="_blank">财经法规与财经职业道德</a></h3>
-    </div>
-    <div class="clearh"></div>
-    <div class="teapic">
-        <a href="#"  target="_blank"><img src="/static/images/c3.jpg" height="60" title="财经法规与财经职业道德"></a>
-        <h3 class="courh3"><a href="#" class="peptitle" target="_blank">财经法规与财经职业道德</a></h3>
-    </div>
-    <div class="clearh"></div>
+    @endforeach
     </div>
     </div>
 </div>
@@ -266,8 +250,8 @@
                         <div class="popbtn hezuologo">
                         <span class="hezuo z1">使用合作网站账号登录</span>
                         <div class="hezuoimg z1">
-                        <img src="/static/images/hezuoqq.png" class="hzqq" title="QQ" width="40" height="40">
-                        <img src="/static/images/hezuowb.png" class="hzwb" title="微博" width="40" height="40">
+                        <img src="/status/images/hezuoqq.png" class="hzqq" title="QQ" width="40" height="40">
+                        <img src="/status/images/hezuowb.png" class="hzwb" title="微博" width="40" height="40">
                         </div>
                         </div>
                 </form>
