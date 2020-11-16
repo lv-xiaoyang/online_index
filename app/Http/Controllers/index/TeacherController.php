@@ -12,19 +12,6 @@ class TeacherController extends Controller
         return view('index.regteacher');
     }
 
-    // 文件上传
-    // public function upload($filename){
-
-    //     if (request()->file($filename)->isValid()){
-    //         // 接收文件
-    //         $file = request()->$filename;
-    //         // 实现上传
-    //         $path = $file->store('uploads');
-    //         return $path;
-    //     }
-    //     exit("上传文件出错！");
-    // }
-
     public function story(Request $request){
         // echo 11;die;
         // 接视图ajax传来的值
@@ -83,10 +70,7 @@ class TeacherController extends Controller
         }else{
             return ['code'=>0002,"msg"=>"no"];
         }
-
-
     }
-
 
     //图片上传处理
     public function fileImg($lereg_qual){
@@ -95,4 +79,10 @@ class TeacherController extends Controller
         }
         return $path;
     }
+
+
+
+
+
+
 }

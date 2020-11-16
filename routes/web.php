@@ -37,29 +37,32 @@ Route::post('/index/logins','index\LoginController@logins');
 
 //讲师模板
 //讲师个人详情页面
-Route::any('/index/teacher','index\IndexController@teacher');
+Route::any('/index/teacher/{id}','index\IndexController@teacher');
 //讲师课程页面
 Route::any('/index/coursecont','index\IndexController@coursecont');
 //讲师课程章节页面
 Route::any('/index/coursecont1','index\IndexController@coursecont1');
 //讲师课程视频页面
 Route::any('/index/video','index\IndexController@video');
-
 //讲师课程评论页面
 Route::any('/index/comment','index\IndexController@comment');
 
-//个人中心讲师申请页面
-Route::any('/index/regteacher','index\IndexController@regteacher');
-// 讲师登录页面
-Route::any('/index/loginteacher','index\IndexController@loginteacher');
-// 讲师添加注册方法
-Route::get('/index/regteacher/create','index\TeacherController@create');
-// 讲师执行添加，注册方法
-Route::post('/index/regteacher/story','index\TeacherController@story');
-// 讲师执行添加，注册方法
-Route::post('/index/regteacher/getsun','index\TeacherController@getsun');
-// 讲师注册成功跳转页面
+//讲师列表展示页面
+// Route::get("/teacherlist",'index\TeacherController@teacherlist');
 
+// 讲师注册模块
+Route::prefix("/index")->group(function(){
+	//个人中心讲师申请页面
+	Route::any('/regteacher','index\IndexController@regteacher');
+	// 讲师登录页面
+	Route::any('/loginteacher','index\IndexController@loginteacher');
+	// 讲师添加注册方法
+	Route::get('/regteacher/create','index\TeacherController@create');
+	// 讲师执行添加，注册方法
+	Route::post('/regteacher/story','index\TeacherController@story');
+	// 讲师执行添加，注册方法
+	Route::post('/regteacher/getsun','index\TeacherController@getsun');
+});
 
 
 //前台题库模块
