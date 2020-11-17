@@ -13,9 +13,16 @@
             //获取课程分类
             $url="getcoursetype";
             $type_data=$this->getGet($url);
-            $type_data=json_decode($type_data);
+            $type_data=json_decode($type_data,true);
+            if($type_data['code']==0001){
+                $type_data=$type_data['data'];
+            }
             //获取首页课程信息--第一次加载
             $course_data=$this->getIndexcourse(1);
+            if($course_data['code']==0001){
+                $course_data=$course_data['data'];
+            }
+            // dd($course_data);
     		return view("index.index",compact('type_data','course_data'));
         }
         /**frist
@@ -25,10 +32,12 @@
             //获取课程id
             $type_id=request()->type_id;
             $data=$this->getIndexcourse($type_id);
-            foreach($data as $v){
-                $v->course_img=env('IMG_URL').$v->course_img;
+            if($data['code']==1){
+                $data=$data['data'];
             }
-            $data=array_map('get_object_vars',$data);
+            foreach($data as $k=>$v){
+                $data[$k]['course_img']=env('APP_URL').$v['course_img'];
+            }
             return json_encode($data);
         }
         /**
@@ -38,7 +47,7 @@
             //获取课程信息
             $url="getIndexcourse?course_type=".$course_type_id;;
             $course_data=$this->getGet($url);
-            $course_data=json_decode($course_data);
+            $course_data=json_decode($course_data,true);
             return $course_data;
         }
     	

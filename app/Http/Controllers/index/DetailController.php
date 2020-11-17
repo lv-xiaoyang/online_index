@@ -110,6 +110,34 @@ class DetailController extends Common
         }else{
             print_r($video_data['msg']);die;
         }
-        return view('index.course.video',compact('video_data'));
+        //获取课时信息
+        $class_url="index/getfirstclass?class_id=".$class_id;
+        $first_class_data=$this->getGet($class_url);
+        $first_class_data=json_decode($first_class_data,true);
+        //获取章节信息
+        $chapter_url="index/getCourseChapter?course_id=".$video_data['course_id'];
+        $chapter_data=$this->getGet($chapter_url);
+        $chapter_data=json_decode($chapter_data,true);
+        foreach($chapter_data as $k=>$v){
+            $chapter_data[$k]['level']=$k+1;
+            //获取节信息
+            $section_url="index/getCourseSection?course_id=".$video_data['course_id']."&chapter_id=".$v['chapter_id'];
+            $section_data=$this->getGet($section_url);
+            $section_data=json_decode($section_data,true);
+            $chapter_data[$k]['section']=$section_data;
+            foreach($section_data as $kk=>$vv){
+                $chapter_data[$k]['section'][$kk]['level']=$kk+1;
+                //获取课时信息
+                $class_url="index/getcourseclass?course_id=".$video_data['course_id']."&chapter_id=".$v['chapter_id']."&section_id=".$vv['section_id'];
+                $class_data=$this->getGet($class_url);
+                $class_data=json_decode($class_data,true);
+                foreach($class_data as $kkk=>$vvv){
+                    $class_data[$kkk]['level']=$kkk+1;
+                }
+                $chapter_data[$k]['section'][$kk]['class']=$class_data;
+            }
+            
+        }
+        return view('index.course.video',compact('video_data','chapter_data','first_class_data'));
     }
 }

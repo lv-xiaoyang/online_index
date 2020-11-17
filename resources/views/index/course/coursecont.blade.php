@@ -4,7 +4,7 @@
 <!-- InstanceBeginEditable name="EditRegion1" -->
 <div class="coursecont">
 <div class="coursepic">
-	<div class="course_img"><img src="{{env('IMG_URL')}}{{$first_data->course_img}}" width="500"></div>
+	<div class="course_img"><img src="{{env('APP_URL')}}{{$first_data->course_img}}" width="500"></div>
     <div class="coursetitle">
    		<a class="state">{{$first_data->course_status==1?'更新中':'已完结'}}</a>
     	<h2 class="courseh2">{{$first_data->course_name}}</h2>    
@@ -44,7 +44,7 @@
     @foreach($first_data->chapter as $k=>$v)
     	<dt><a href="/index/coursecont/{{$v['chapter_id']}}" class="graylink">第{{$k+1}}章&nbsp;&nbsp;{{$v['chapter_name']}}</a></dt>
         @foreach($v['section'] as $kk=>$vv)
-        <dd><a href="">{{$vv['section_name']}}</a></dd>
+        <dd><a href="/detail/course/{{$first_data->course_id}}.html">{{$vv['section_name']}}</a></dd>
         @endforeach
     @endforeach
     	

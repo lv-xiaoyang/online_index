@@ -59,7 +59,7 @@
 						<div class="mulu_con">
 							<dd class="smalltitle"><strong>第{{$vv['section_id']}}节&nbsp;&nbsp;</strong></dd>
                             @foreach($vv['class'] as $kkk=>$vvv)
-							<a href="/index/video?class_id={{$vvv['class_id']}}"><dd><strong class="cataloglink">课时{{$vvv['level']}}：{{$vvv['class_name']}}</strong><i class="fini nn"></i></dd></a>
+							<a href="/detail/video?class_id={{$vvv['class_id']}}"><dd><strong class="cataloglink">课时{{$vvv['level']}}：{{$vvv['class_name']}}</strong><i class="fini nn"></i></dd></a>
 							@endforeach
 						</div>
                         @endforeach

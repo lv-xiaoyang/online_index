@@ -320,10 +320,10 @@
     <div>
         <ul id="myTab3">
 			@foreach($type_data as $v)
-				@if($v->type_id==1)
-				<li class="current" value="{{$v->type_id}}">{{$v->type_name}}</li>
+				@if($v['type_id']==1)
+				<li class="current" value="{{$v['type_id']}}">{{$v['type_name']}}</li>
 				@else
-				<li class="type" value="{{$v->type_id}}">{{$v->type_name}}</li>
+				<li class="type" value="{{$v['type_id']}}">{{$v['type_name']}}</li>
 				@endif
 			@endforeach
         </ul>
@@ -331,13 +331,13 @@
         <div>
            <ul class="courseul course_course" id="myTab3_Content0" style="display: block;">
 		   @foreach($course_data as $v)
-            <a href="/courselist/detail/{{$v->course_id}}.html"><li course_id="{{$v->course_id}}">
+            <a href="/courselist/detail/{{$v['course_id']}}.html"><li course_id="{{$v['course_id']}}">
             	<div class="courselist">
-                <img width="263" style="border-radius:3px 3px 0 0;" src="{{env('IMG_URL')}}{{$v->course_img}}" >
-                <p class="courTit">{{$v->course_name}}</p>
+                <img width="263" style="border-radius:3px 3px 0 0;" src="{{env('APP_URL')}}{{$v['course_img']}}" >
+                <p class="courTit">{{$v['course_name']}}</p>
                 <div class="gray">
 					<span>1小时前更新</span>
-					<span class="sp1">{{$v->course_view}}人学习</span>
+					<span class="sp1">{{$v['course_view']}}人学习</span>
 					<div style="clear:both"></div>
                 </div>
                 </div>

@@ -3,8 +3,8 @@
 @section("content")
 
    <div class="linevideo" style="overflow-x:hidden">
-    	<span class="returnindex"><a class="gray" href="/index/coursecont1" style="font-size:14px;">返回课程</a></span>   
-        <span class="taskspan"><span class="ts">课时100</span>&nbsp;&nbsp;<b class="tasktit">会计的概念与目标1</b></span> 
+    	<span class="returnindex"><a class="gray" href="/detail/course/{{$video_data['course_id']}}.html" style="font-size:14px;">返回课程</a></span>   
+        <span class="taskspan"><span class="ts">课时{{$video_data['class_id']}}</span>&nbsp;&nbsp;<b class="tasktit">{{$first_class_data['class_name']}}</b></span> 
         <div style="width:100%;margin-top:20px;">
 			<video width="auto" id="example_video_1" class="video-js vjs-default-skin  vjs-big-play-centered vvi " controls preload="none"  poster="" data-setup="{}"><!--poster是视频未播放前的展示图片-->
 			<source src="{{env('VIDEO_URL')}}{{$video_data['video_url']}}" type='video/mp4' />
@@ -39,30 +39,16 @@
 			<div class="tab_box tabcard">
 				<div style="padding-bottom:30px;">
 					<dl class="mulu noo1">
-                        <dt>第一章&nbsp;&nbsp;总论</dt>
-						<dd class="smalltitle"><strong>第一节&nbsp;&nbsp;会计的概念与目标</strong></dd>
-                        <a href="#"><dd><i class="forwa nn"></i><strong class="cataloglink">课时1：会计的概念与目标1</strong></dd></a>
-                        <dd><i class="forwa fn"></i><strong class="cataloglink">课时2：会计的概念与目标2</strong></dd>
-
-                        <dt>第二章&nbsp;&nbsp;会计要素与会计等式</dt>
-						<dd class="smalltitle"><strong>第一节&nbsp;&nbsp;会计要素</strong></dd>
-                        <dd><i class="forwa ff"></i><strong class="cataloglink">课时1：会计要素与会计等式1</strong></dd>
-                        <dd><i class="forwa nn"></i><strong class="cataloglink">课时2：会计要素与会计等式2</strong></dd>
-
-						<dt>第三章&nbsp;&nbsp;总论</dt>
-						<dd class="smalltitle"><strong>第一节&nbsp;&nbsp;会计的概念与目标</strong></dd>
-                        <a href="#"><dd><i class="forwa nn"></i><strong class="cataloglink">课时1：会计的概念与目标1</strong></dd></a>
-                        <dd><i class="forwa nn"></i><strong class="cataloglink">课时2：会计的概念与目标2</strong></dd>
-
-						<dt>第四章&nbsp;&nbsp;总论</dt>
-						<dd class="smalltitle"><strong>第一节&nbsp;&nbsp;会计的概念与目标</strong></dd>
-                        <a href="#"><dd><i class="forwa nn"></i><strong class="cataloglink">课时1：会计的概念与目标1</strong></dd></a>
-                        <dd><i class="forwa nn"></i><strong class="cataloglink">课时2：会计的概念与目标2</strong></dd>
-
-						<dt>第五章&nbsp;&nbsp;总论</dt>
-						<dd class="smalltitle"><strong>第一节&nbsp;&nbsp;会计的概念与目标</strong></dd>
-                        <a href="#"><dd><i class="forwa nn"></i><strong class="cataloglink">课时1：会计的概念与目标1</strong></dd></a>
-                        <dd><i class="forwa nn"></i><strong class="cataloglink">课时2：会计的概念与目标2</strong></dd>
+                    @foreach($chapter_data as $v)
+                        <dt>第{{$v['level']}}章&nbsp;&nbsp;{{$v['chapter_name']}}</dt>
+                        @foreach($v['section'] as $vv)
+						    <dd class="smalltitle"><strong>第{{$vv['level']}}节&nbsp;&nbsp;{{$vv['section_name']}}</strong></dd>
+                            @foreach($vv['class'] as $vvv)
+                            <a href="/detail/video?class_id={{$vvv['class_id']}}"><dd><i class="forwa nn"></i><strong class="cataloglink">课时{{$vvv['level']}}：{{$vvv['class_name']}}</strong></dd></a>
+                            @endforeach
+                        @endforeach
+                    @endforeach
+                        
                    </dl>	
 				   <div class="clearh"></div>
 				</div>
